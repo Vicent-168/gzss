@@ -1,0 +1,49 @@
+
+“	java:S117P"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô²¨÷8˜Ë”õ©2J$62d951fb-669e-4377-a761-3d403750b2ff
+¤
+java:S1488µ"`Immediately return this expression instead of assigning it to the temporary variable "sfJbwzVo".(ùŞ—¼8˜Ë”õ©2J$be71264c-4928-406c-bdda-715f676c964f
+…
+java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8šË”õ©2J$bd55c475-b1e3-4d48-bcb4-8cdcd6339298
+…
+java:S6813,"BRemove this field injection and use constructor injection instead.(êæÄŞ8šË”õ©2J$e5364163-d8e6-4483-98c9-b556c1425473
+…
+java:S6813/"BRemove this field injection and use constructor injection instead.(êæÄŞ8šË”õ©2J$92977291-387f-4a19-8ec6-2e21b798c917
+y
+java:S1144£"0Remove this unused private "getDictName" method.(Œ”Íêıÿÿÿÿ8›Ë”õ©2J$2c6b351d-a825-4d2e-9424-3758d0e1327f
+’
+java:S3252L"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ëûé“8Ë”õ©2J$d59a414f-44fa-48c0-b3d9-c6dddb25a54c
+’
+java:S3252Q"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ä—İË8Ë”õ©2J$ea601584-f090-4def-b155-42ea5da525a0
+—
+java:S3252S"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ŞÜåøÿÿÿÿ8Ë”õ©2J$97d4f711-1b7b-4925-b110-2156977dd526
+’
+java:S3252T"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(¬ßá÷8Ë”õ©2J$53f6a649-fc05-49d1-b88c-b4cc57464620
+‘
+java:S3252U"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ãÖªD8Ë”õ©2J$a2ea756f-36d9-45ee-8b76-f9b537a39700
+’
+java:S3252V"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ÉãÇÌ8Ë”õ©2J$ae4a4b7c-ad57-487f-b4f5-e23940eb3f4a
+—
+java:S3252W"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(’ßÑŒşÿÿÿÿ8Ë”õ©2J$14744f81-66eb-4208-a054-595b26d95117
+—
+java:S3252X"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(—Ä‚şÿÿÿÿ8Ë”õ©2J$6b8b4707-7cfc-43bd-b70d-50ae29ad9120
+—
+java:S3252Y"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ÂÔ¶½ûÿÿÿÿ8Ë”õ©2J$9b023d23-a8d0-4c1f-8dcc-c896a77005ff
+—
+java:S3252Z"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(…ÁŠùûÿÿÿÿ8Ë”õ©2J$0236a150-2832-4a20-b0ef-da84c7e83510
+—
+java:S3252["OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(şà¿ôüÿÿÿÿ8Ë”õ©2J$0f338cbb-bd9d-4693-8a38-863c0319d849
+’
+java:S3252\"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(‚±ˆ«8Ë”õ©2J$9cb8d123-3b61-4d19-9114-87a947ff4d35
+’
+java:S3252]"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(„èÿ€8Ë”õ©2J$7a3da3e7-790a-4556-80a7-a9f9cb9743b5
+—
+java:S3252^"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(áÖ¯øÿÿÿÿ8ŸË”õ©2J$87921c7f-d963-43c5-ad9e-a2d83cf69e5d
+†
+java:S1155`">Use isEmpty() to check whether the collection is empty or not.( Œúüÿÿÿÿ8ŸË”õ©2J$822ca4d4-963a-4e7b-9d42-5347a61c6c79
+ƒ
+java:S6213":Rename this variable to not match a restricted identifier.(¤ÌÁüÿÿÿÿ8 Ë”õ©2J$6a6fe829-fbef-44f1-91ad-233c2ff16978
+„	java:S125—"<This block of commented-out lines of code should be removed.(¦€£ûÿÿÿÿ8¡Ë”õ©2J$23d3aef0-0f14-4d49-961b-fa2ca2ac30e1
+•
+java:S3252¯"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(¹ Ï˜ùÿÿÿÿ8¡Ë”õ©2J$9124a1bf-8d52-490b-8d10-ba768bc5d14e
+H
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8ÄëÖ÷©2

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.sys.mapper.SfJbwzMapper">
+
+    <select id="findByPage" resultType="com.shdata.health.gzss.sys.vo.SfJbwzVo"
+            parameterType="com.shdata.health.gzss.sys.vo.SfJbwzSearchVo">
+        SELECT * FROM CDC_TB_SF_JBWZ t WHERE t.del_flag='0'
+        <if test="needOrder">ORDER BY t.update_time DESC</if>
+    </select>
+    <select id="findJbwzDataByCriterIas" resultType="com.shdata.health.gzss.sys.vo.resp.SfJbwzDto">
+        select jbwz.ID as id,
+        jbwz.DA_ID as daId,
+        jbqk.XM as xm,
+        jbqk.XB as xb,
+        jbqk.SFZH as sfzh,
+        jbqk.LXFS as lxfs,
+        jbwz.WZRQ as wzrq,
+        jbwz.XFGZ as xfgz,
+        jbwz.SG_SD as sgsd
+        from CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        join CDC_GZSS.CDC_TB_SF_JBWZ jbwz
+        on jbwz.DA_ID =jbqk.DA_ID
+        where jbqk.DEL_FLAG ='0'
+        and jbwz.DEL_FLAG ='0'
+        from CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        join CDC_GZSS.CDC_TB_SF_JBWZ jbwz
+        on jbwz.da_id =jbqk.da_id
+        where jbqk.del_flag ='0'
+        and jbwz.del_flag ='0'
+        <if test="keyword !=null and keyword !=''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="wzyljg !=null and wzyljg !=''">
+            and jbwz.wzyljg =#{wzyljg}
+        </if>
+        <if test="wzrq !=null and wzrq !=''">
+            and jbwz.wzrq between #{beginDate} and #{endDate}
+        </if>
+        <if test="zzlist !=null and zzlist !=''">
+            and jbwz.zz in
+            <foreach collection="zzlist" item="zz" open="(" separator="OR" close=")">#{zz}</foreach>
+        </if>
+        >
+        <if test="xfgz !=null and xfgz !=''">
+            and jbwz.xfgz =#{xfgz}
+        </if>
+        ORDER BY jbwz.wzrq DESC
+    </select>
+    <select id="findJbwzDataByDaIdandDate" resultType="com.shdata.health.gzss.sys.vo.SfJbwzVo" parameterType="com.shdata.health.gzss.sys.vo.SfyljbwzVo">
+        SELECT t.ID as id,
+        t.DA_ID as daId,
+        t.DDCS as ddcs,
+        t.GLJG as gljg,
+        t.GZSSZWXYS as gzsszwxys,
+        t.SFFS as sffs,
+        t.SFQJFSDD as sfqjfsdd,
+        t.SFYS as sfys,
+        t.SFYSID as sfysid,
+        t.SG_SD as sgsd,
+        t.WZRQ as wzrq,
+        t.WZYLJG as wzyljg,
+        t.XFGZ as xfgz,
+        t.XFGZCS as xfgzcs,
+        t.XFZZ as xfzz,
+        t.ZLQKYCX as zlqkycx,
+        t.ZZ as zz
+        FROM CDC_GZSS.CDC_TB_SF_JBWZ t
+        WHERE t.DEL_FLAG='0'
+          and t.DA_ID=#{daId}
+          and t.WZRQ =#{wzrq}
+    </select>
+    <select id="findJbwzDataByCriteria" resultType="com.shdata.health.gzss.sys.vo.resp.SfJbwzDto" parameterType="com.shdata.health.gzss.sys.vo.SfJbwzSearchVo">
+        select jbwz.ID as id,
+        jbwz.DA_ID as daId,
+        jbqk.XM as xm,
+        jbqk.XB as xb,
+        jbqk.SFZH as sfzh,
+        jbqk.LXFS as lxfs,
+        jbwz.WZRQ as wzrq,
+        jbwz.ZZ as zz,
+        jbwz.XFGZ as xfgz,
+        jbwz.SFQJFSDD as sfqjfsdd,
+        jbwz.SG_SD as sgsd
+        from CDC_GZSS.CDC_TB_SF_JBWZ jbwz
+        join CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        on jbwz.DA_ID =jbqk.DA_ID
+        where jbqk.DEL_FLAG ='0'
+        and jbwz.DEL_FLAG ='0'
+        <if test="keyword !=null and keyword !=''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="wzyljg !=null and wzyljg !=''">
+            and jbwz.WZYLJG =#{wzyljg}
+        </if>
+        <if test="beginDate != null and endDate != null">
+            AND jbwz.WZRQ BETWEEN TO_DATE(#{beginDate}, 'YYYY-MM-DD') AND TO_DATE(#{endDate}, 'YYYY-MM-DD')
+        </if>
+        <if test="zzlist !=null and !zzlist.isEmpty()">
+            and (
+            <foreach collection="zzlist" item="zz" separator="OR">
+                jbwz.ZZ=#{zz}
+            </foreach>
+            )
+        </if>
+        <if test="xfgz !=null and xfgz !=''">
+            and jbwz.XFGZ =#{xfgz}
+        </if>
+        ORDER BY jbwz.WZRQ DESC
+    </select>
+</mapper>

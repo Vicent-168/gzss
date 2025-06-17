@@ -1,0 +1,59 @@
+
+€
+java:S2589É"7Remove this expression which always evaluates to "true"(‹ÓåÃøÿÿÿÿ8·ù©ğ´2J$8e6d36c3-544f-4789-80f3-603a4b8a3d70
+¡
+java:S2293x"YReplace the type specification in this constructor call with the diamond operator ("<>").(±è“»úÿÿÿÿ8·ù©ğ´2J$57d99f98-5ed9-4f03-9254-031f02c39f0e
+¢
+java:S2293Œ"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ã¢øüÿÿÿÿ8·ù©ğ´2J$f82eb08d-8307-47e5-a4dd-c796c7084228
+ª
+java:S1488ì"aImmediately return this expression instead of assigning it to the temporary variable "sfGmdjcVo".(éæŞùÿÿÿÿ8¸ù©ğ´2J$11710d62-ad06-4321-81ce-6e3a13b2b385
+¥
+java:S1488ó"aImmediately return this expression instead of assigning it to the temporary variable "sfGmdjcVo".(†Ñøç8¸ù©ğ´2J$e0732c7e-1ab6-47bb-944c-a4bde67d806c
+ 
+java:S1192Ò"\Define a constant instead of duplicating this literal "æ— æ•ˆçš„Tå€¼ä»£ç ç»„åˆ: " 3 times.(ÌÇÌÂ8ºù©ğ´2J$66dfefa7-3d22-416c-8811-e7310e89d1f7
+
+java:S1192…"UDefine a constant instead of duplicating this literal "æ¡£æ¡ˆIDä¸èƒ½ä¸ºç©º" 4 times.(¼Å©ûÿÿÿÿ8ºù©ğ´2J$227e312c-ad1c-4909-bcea-7b0602091e38
+Š
+java:S1192Â"FDefine a constant instead of duplicating this literal " <= 1" 3 times.(‰Šşî8ºù©ğ´2J$32c11d85-230f-4c42-84f8-fb3f7674743a
+…
+java:S6813,"BRemove this field injection and use constructor injection instead.(êæÄŞ8»ù©ğ´2J$c7c5055c-8026-4df0-8b1b-2c5b8941c273
+…
+java:S6813/"BRemove this field injection and use constructor injection instead.(êæÄŞ8»ù©ğ´2J$3852878e-3a91-4165-b42b-1c62ba6ce10f
+…
+java:S68131"BRemove this field injection and use constructor injection instead.(êæÄŞ8»ù©ğ´2J$79333e8f-b706-42db-863e-9eca376f6f62
+…
+java:S68134"BRemove this field injection and use constructor injection instead.(êæÄŞ8»ù©ğ´2J$67625a3f-bbb0-44e2-8a15-09b3842b3460
+v
+java:S1144â"2Remove this unused private "getColumnName" method.(Í“°ç8½ù©ğ´2J$45914a62-eddf-41e9-9929-e7ed5de41383
+q
+java:S1144ğ"-Remove this unused private "getRange" method.(ßğÙ…8½ù©ğ´2J$b08f7ebf-10d1-4d0b-9962-160e1019b58f
+y
+java:S1144¥"0Remove this unused private "getDictName" method.(Œ”Íêıÿÿÿÿ8½ù©ğ´2J$6ac972bc-3c60-46df-9d4e-b45495ddb9c8
+’
+java:S3252A"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ëûé“8¿ù©ğ´2J$7cb5a3ce-0bdf-48be-b1cb-0dc771a8235a
+—
+java:S3252F"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(š’Ëóÿÿÿÿÿ8Àù©ğ´2J$6747414a-fe16-429e-a04f-8762a3ca7279
+—
+java:S3252G"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(³ëÏÿÿÿÿÿ8Àù©ğ´2J$9bf5539c-c030-4bad-b3e0-e7aa8cc7cdcc
+š
+java:S3776s"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(œÁ‰üÿÿÿÿ8Ãù©ğ´2J$6b4f6fc8-a03c-433d-99ec-dacdcf0fc3c6
+”
+java:S3252{"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(“ï˜Şûÿÿÿÿ8Åù©ğ´2J$c56f8a78-158c-4d28-967f-59b773709074
+“
+java:S3252|"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(°»¶8ï©³ğ´2J$b07db080-cb76-4b24-a095-07450559e331
+”
+java:S3252~"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(®¿ÇÕùÿÿÿÿ8Åù©ğ´2J$99374b4c-ee55-453b-a1ed-a1917098d225
+	java:S125›"<This block of commented-out lines of code should be removed.(æ˜ò8Çù©ğ´2J$0bf16906-a77e-473d-9b4a-aeae217452ad
+y
+java:S2209®"5Change this instance-reference to a static reference.(×ÉÅí8Èù©ğ´2J$604894ae-9a60-45c3-979f-b8cced2e9228
+y
+java:S2209»"5Change this instance-reference to a static reference.(×ÉÅí8Íù©ğ´2J$6e98a247-5619-4a95-9615-ee9c1727ae1a
+›
+java:S3776¾"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(Ëšøÿÿÿÿ8Èù©ğ´2J$562c303c-9466-4e88-a1a2-42e13f35c22e
+~	java:S125“"<This block of commented-out lines of code should be removed.(³òÜ%8Íù©ğ´2J$61eee78a-7531-4a0a-980b-937de0192ace
+y
+java:S2209¡"5Change this instance-reference to a static reference.(ùœ¡Ç8îšÂ–µ2J$40076ec9-56ab-40f8-8394-9f71a3238d17
+ƒ
+java:S6213Ø":Rename this variable to not match a restricted identifier.(¾Û“´ùÿÿÿÿ8Øù©ğ´2J$4b6db97e-8305-4d88-b359-da1b308d0561
+
+java:S3252è"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(ù¤Ğø8Øù©ğ´2J$6efa8022-1aae-45d2-8bf3-7b3939e5bc5c

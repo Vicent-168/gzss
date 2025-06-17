@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.sys.mapper.PgJgMapper">
+
+    <select id="findByPage" resultType="com.shdata.health.gzss.sys.vo.PgJgVo"
+            parameterType="com.shdata.health.gzss.sys.vo.PgJgSearchVo">
+        SELECT * FROM CDC_TB_PG_JG t WHERE t.del_flag='0'
+        <if test="needOrder">ORDER BY t.update_time DESC</if>
+    </select>
+        <select id="findPgJgDataByCriteria1" resultType="com.shdata.health.gzss.sys.vo.resp.PgJgDto"
+                parameterType="com.shdata.health.gzss.sys.vo.PgJgSearchVo">
+            SELECT
+            pgjgTbl.PG_ID AS pgId,
+            jbqk.DA_ID AS daId,
+            jbqk.XM AS xm,
+            jbqk.XB AS xb,
+            jbqk.SFZH AS sfzh,
+            jbqk.LXFS AS lxfs,
+            jbqk.ZD AS zd,
+            pgjgTbl.PGRQ AS pgrq,
+            pgjgTbl.PGJG AS pgjg,
+            jbqk.DAZT AS glzt,
+            pgjgTbl.PGYSID AS pgysid,
+            pgjgTbl.PGYS AS pgys
+            FROM "CDC_GZSS"."CDC_TB_DA_JBQK" jbqk
+            LEFT JOIN CDC_GZSS.CDC_TB_PG_JG pgjgTbl ON jbqk.DA_ID = pgjgTbl.DA_ID
+            WHERE jbqk.DEL_FLAG = '0'
+            <if test="pgjg != null and pgjg != ''">
+                <choose>
+                    <when test="pgjg == '1'">
+                        <if test="pgjgText != null and pgjgText != ''">
+                            AND (pgjgTbl.PGJG = #{pgjgText} OR pgjgTbl.PGJG IS NULL)
+                        </if>
+                        <if test="pgjgText == null or pgjgText == ''">
+                            AND pgjgTbl.PGJG IS NOT NULL
+                        </if>
+                    </when>
+                    <when test="pgjg == '2'">
+                        AND pgjgTbl.PGJG IS NULL
+                    </when>
+                </choose>
+            </if>
+            <if test="pgysId != null and pgysId != ''">
+                AND (pgjgTbl.PGYSID = #{pgysId} OR pgjgTbl.PGYSID IS NULL)
+            </if>
+            <if test="beginDate != null">
+                AND (pgjgTbl.PGRQ &gt;= #{beginDate} OR pgjgTbl.PGRQ IS NULL)
+            </if>
+            <if test="endDate != null">
+                AND (pgjgTbl.PGRQ &lt;= #{endDate} OR pgjgTbl.PGRQ IS NULL)
+            </if>
+            <if test="glyljg != null and glyljg != ''">
+                AND jbqk.GLJG = #{glyljg}
+            </if>
+            <if test="zdlist != null and !zdlist.isEmpty()">
+                AND jbqk.ZD IN
+                <foreach item="zd" index="index" collection="zdlist" open="(" separator="," close=")">
+                    #{zd}
+                </foreach>
+            </if>
+            <if test="glztlist != null and !glztlist.isEmpty()">
+                AND jbqk.DAZT IN
+                <foreach item="glzt" index="index" collection="glztlist" open="(" separator="," close=")">
+                    #{glzt}
+                </foreach>
+            </if>
+            <if test="keyword != null and keyword != ''">
+                AND (
+                jbqk.SFZH LIKE #{keyword}
+                OR jbqk.YBKH LIKE #{keyword}
+                OR jbqk.XM LIKE #{keyword}
+                )
+            </if>
+            ORDER BY jbqk."CREATE_TIME" DESC
+        </select>
+    <!--<select id="findPgJgDataByCriteria2" resultType="com.shdata.health.gzss.sys.vo.resp.PgJgDto"
+            parameterType="com.shdata.health.gzss.sys.vo.PgJgSearchVo">
+        SELECT
+        pgjgTbl.PG_ID AS pgId,
+        jbqk.DA_ID AS daId,
+        jbqk.XM AS xm,
+        jbqk.XB AS xb,
+        jbqk.SFZH AS sfzh,
+        jbqk.LXFS AS lxfs,
+        jbqk.ZD AS zd,
+        pgjgTbl.PGRQ AS pgrq,
+        pgjgTbl.PGJG AS pgjg,
+        jbqk.DAZT AS glzt,
+        pgjgTbl.PGYSID AS pgysid,
+        pgjgTbl.PGYS AS pgys
+        FROM CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        LEFT JOIN CDC_GZSS.CDC_TB_PG_JG pgjgTbl ON jbqk.DA_ID = pgjgTbl.DA_ID
+        <if test="pgjg != null and pgjg != ''">
+            <if test="pgjg == '1'">
+                <if test="pgjgText != null and pgjgText != ''">
+                    AND (pgjgTbl.PGJG = #{pgjgText})
+                </if>
+                <if test="pgjgText == null or pgjgText == ''">
+                    &lt;!&ndash; 如果 pgjg == '1' 但 pgjgText 为空，可以选择抛出异常或给默认条件 &ndash;&gt;
+                    AND (pgjgTbl.PGJG IS  NULL) &lt;!&ndash; 如果需要确保有评估结果文本 &ndash;&gt;
+                </if>
+            </if>
+            <if test="pgjg == '2'">
+                AND (pgjgTbl.PGJG IS NULL) &lt;!&ndash; 只需要判断 pgjg == '2'，不需要 pgjgText &ndash;&gt;
+            </if>
+        </if>
+        <if test="pgysId != null and pgysId != ''">
+            AND (pgjgTbl.PGYSID = #{pgysId})
+        </if>
+        <if test="beginDate != null">
+            AND (pgjgTbl.PGRQ &gt;= #{beginDate})
+        </if>
+        <if test="endDate != null">
+            AND (pgjgTbl.PGRQ &lt;= #{endDate})
+        </if>
+        AND (pgjgTbl.DEL_FLAG = '0' OR pgjgTbl.DEL_FLAG IS NULL)
+        WHERE jbqk.DEL_FLAG = '0'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="glyljg != null and glyljg != ''">
+            AND jbqk.GLJG = #{glyljg}
+        </if>
+        <if test="zdlist != null and !zdlist.isEmpty()">
+            AND jbqk.ZD IN
+            <foreach item="zd" index="index" collection="zdlist" open="(" separator="," close=")">
+                #{zd}
+            </foreach>
+        </if>
+        <if test="glztlist != null and !glztlist.isEmpty()">
+            AND jbqk.DAZT IN
+            <foreach item="glzt" index="index" collection="glztlist" open="(" separator="," close=")">
+                #{glzt}
+            </foreach>
+        </if>
+    </select>-->
+    <select id="findPgJgDataByCriteria2" resultType="com.shdata.health.gzss.sys.vo.resp.PgJgDto"
+            parameterType="com.shdata.health.gzss.sys.vo.PgJgSearchVo">
+        SELECT
+        pgjgTbl.PG_ID AS pgId,
+        jbqk.DA_ID AS daId,
+        jbqk.XM AS xm,
+        jbqk.XB AS xb,
+        jbqk.SFZH AS sfzh,
+        jbqk.LXFS AS lxfs,
+        jbqk.ZD AS zd,
+        pgjgTbl.PGRQ AS pgrq,
+        pgjgTbl.PGJG AS pgjg,
+        jbqk.DAZT AS glzt,
+        pgjgTbl.PGYSID AS pgysid,
+        pgjgTbl.PGYS AS pgys
+        FROM CDC_GZSS.CDC_TB_DA_JBQK jbqk
+         JOIN CDC_GZSS.CDC_TB_PG_JG pgjgTbl
+        ON jbqk.DA_ID = pgjgTbl.DA_ID
+        AND (pgjgTbl.DEL_FLAG = '0' OR pgjgTbl.DEL_FLAG IS NULL)
+        <if test="beginDate != null">
+            AND pgjgTbl.PGRQ &gt;= #{beginDate}
+        </if>
+        <if test="endDate != null">
+            AND pgjgTbl.PGRQ &lt;= #{endDate}
+        </if>
+        <if test="pgysId != null and pgysId != ''">
+            AND (pgjgTbl.PGYSID = #{pgysId})
+        </if>
+        <if test="pgjgText != null and pgjgText != ''">
+            AND pgjgTbl.PGJG LIKE #{pgjgText}
+        </if>
+        <!--<if test="pgjg == '1'">
+            AND pgjgTbl.PGJG IS NOT NULL
+            <if test="pgjgText != null and pgjgText != ''">
+                AND pgjgTbl.PGJG LIKE #{pgjgText}
+            </if>
+        </if>-->
+        <!--<if test="pgjg == '2'">
+           AND  pgjgTbl.PGJG IS NULL
+        </if>-->
+        WHERE jbqk.DEL_FLAG = '0'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="glyljg != null and glyljg != ''">
+            AND jbqk.GLJG = #{glyljg}
+        </if>
+        <if test="zdlist != null and !zdlist.isEmpty()">
+            AND jbqk.ZD IN
+            <foreach item="zd" index="index" collection="zdlist" open="(" separator="," close=")">
+                #{zd}
+            </foreach>
+        </if>
+        <if test="glztlist != null and !glztlist.isEmpty()">
+            AND jbqk.DAZT IN
+            <foreach item="glzt" index="index" collection="glztlist" open="(" separator="," close=")">
+                #{glzt}
+            </foreach>
+        </if>
+    </select>
+    <!--<select id="findPgJgDataByCriteria3" resultType="com.shdata.health.gzss.sys.vo.resp.PgJgDto"
+            parameterType="com.shdata.health.gzss.sys.vo.PgJgSearchVo">
+        SELECT
+        pgjgTbl.PG_ID AS pgId,
+        jbqk.DA_ID AS daId,
+        jbqk.XM AS xm,
+        jbqk.XB AS xb,
+        jbqk.SFZH AS sfzh,
+        jbqk.LXFS AS lxfs,
+        jbqk.ZD AS zd,
+        pgjgTbl.PGRQ AS pgrq,
+        pgjgTbl.PGJG AS pgjg,
+        jbqk.DAZT AS glzt,
+        pgjgTbl.PGYSID AS pgysid,
+        pgjgTbl.PGYS AS pgys
+        FROM CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        LEFT JOIN CDC_GZSS.CDC_TB_PG_JG pgjgTbl
+        ON jbqk.DA_ID = pgjgTbl.DA_ID
+        AND (pgjgTbl.DEL_FLAG = '0' )
+        <if test="beginDate != null">
+            AND pgjgTbl.PGRQ &gt;= #{beginDate}
+        </if>
+        <if test="endDate != null">
+            AND pgjgTbl.PGRQ &lt;= #{endDate}
+        </if>
+        <if test="pgysId != null and pgysId != ''">
+            AND (pgjgTbl.PGYSID = #{pgysId})
+        </if>
+            AND pgjgTbl.PGJG IS  NULL
+        WHERE jbqk.DEL_FLAG = '0'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="glyljg != null and glyljg != ''">
+            AND jbqk.GLJG = #{glyljg}
+        </if>
+        <if test="zdlist != null and !zdlist.isEmpty()">
+            AND jbqk.ZD IN
+            <foreach item="zd" index="index" collection="zdlist" open="(" separator="," close=")">
+                #{zd}
+            </foreach>
+        </if>
+        <if test="glztlist != null and !glztlist.isEmpty()">
+            AND jbqk.DAZT IN
+            <foreach item="glzt" index="index" collection="glztlist" open="(" separator="," close=")">
+                #{glzt}
+            </foreach>
+        </if>
+    </select>-->
+    <select id="findPgJgDataByCriteria3" resultType="com.shdata.health.gzss.sys.vo.resp.PgJgDto"
+            parameterType="com.shdata.health.gzss.sys.vo.PgJgSearchVo">
+        SELECT
+        jbqk.DA_ID AS daId,
+        jbqk.XM AS xm,
+        jbqk.XB AS xb,
+        jbqk.SFZH AS sfzh,
+        jbqk.LXFS AS lxfs,
+        jbqk.ZD AS zd,
+        jbqk.DAZT AS glzt,
+        jbqk.GLJG AS gljg
+        FROM CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        LEFT JOIN (
+        SELECT DISTINCT DA_ID
+        FROM CDC_GZSS.CDC_TB_PG_JG
+        WHERE DEL_FLAG = '0'
+        <if test="beginDate != null">
+            AND PGRQ &gt;= #{beginDate}
+        </if>
+        <if test="endDate != null">
+            AND PGRQ &lt;= #{endDate}
+        </if>
+        <if test="pgysId != null and pgysId != ''">
+            AND PGYSID = #{pgysId}
+        </if>
+        ) pgjgTbl
+        ON jbqk.DA_ID = pgjgTbl.DA_ID
+        WHERE jbqk.DEL_FLAG = '0'
+        AND pgjgTbl.DA_ID IS NULL
+        <if test="keyword != null and keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="glyljg != null and glyljg != ''">
+            AND jbqk.GLJG = #{glyljg}
+        </if>
+        <if test="zdlist != null and !zdlist.isEmpty()">
+            AND jbqk.ZD IN
+            <foreach item="zd" index="index" collection="zdlist" open="(" separator="," close=")">
+                #{zd}
+            </foreach>
+        </if>
+        <if test="glztlist != null and !glztlist.isEmpty()">
+            AND jbqk.DAZT IN
+            <foreach item="glzt" index="index" collection="glztlist" open="(" separator="," close=")">
+                #{glzt}
+            </foreach>
+        </if>
+    </select>
+    <select id="findPgJgDataByCriteria4" resultType="com.shdata.health.gzss.sys.vo.resp.PgJgDto" parameterType="com.shdata.health.gzss.sys.vo.PgJgSearchVo">
+        SELECT
+        pgjg.PG_ID AS pgId,
+        jbqk.DA_ID AS daId,
+        jbqk.XM AS xm,
+        jbqk.XB AS xb,
+        jbqk.SFZH AS sfzh,
+        jbqk.LXFS AS lxfs,
+        jbqk.ZD AS zd,
+        pgjg.PGRQ AS pgrq,
+        pgjg.PGJG AS pgjg,
+        jbqk.DAZT AS glzt,
+        pgjg.PGYSID AS pgysid,
+        pgjg.PGYS AS pgys
+        FROM CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        LEFT JOIN CDC_GZSS.CDC_TB_PG_JG pgjg ON jbqk.DA_ID = pgjg.DA_ID
+        WHERE jbqk.DEL_FLAG = '0'
+        AND (pgjg.DEL_FLAG = '0' OR pgjg.DEL_FLAG IS NULL)
+        <!-- 根据 includePending 进行条件过滤 -->
+        <if test="hasFilter == false">
+            <!-- 包含待评估的数据 -->
+            <if test="pgysId != null and pgysId != ''">
+                AND (pgjg.PGYSID = #{pgysId} OR pgjg.PGYSID IS NULL)
+            </if>
+            <if test="beginDate != null">
+                AND (pgjg.PGRQ &gt;= #{beginDate} OR pgjg.PGRQ IS NULL)
+            </if>
+            <if test="endDate != null">
+                AND (pgjg.PGRQ &lt;= #{endDate} OR pgjg.PGRQ IS NULL)
+            </if>
+            <if test="zdlist != null and !zdlist.isEmpty()">
+                AND jbqk.ZD IN
+                <foreach item="zd" index="index" collection="zdlist" open="(" separator="," close=")">
+                    #{zd}
+                </foreach>
+            </if>
+            <if test="glztlist != null and !glztlist.isEmpty()">
+                AND jbqk.DAZT IN
+                <foreach item="glzt" index="index" collection="glztlist" open="(" separator="," close=")">
+                    #{glzt}
+                </foreach>
+            </if>
+            <if test="pgjg != null and !pgjg.isEmpty()">
+                <!-- 当 PGJG 为 1（有评估结果）时 -->
+                <if test="pgjg == '1'">
+                    <if test="pgjgText != null and pgjgText != ''">
+                        AND (pgjg.PGJG = #{pgjgText})
+                    </if>
+                    <!-- 如果没有具体的 pgjgText，也只查询有评估结果的档案 -->
+                    <if test="pgjgText == null or pgjgText == ''">
+                        AND (pgjg.PGJG IS NOT NULL AND pgjg.PGJG != '')
+                    </if>
+                </if>
+                <!-- 当 PGJG 为 2（无评估结果）时 -->
+                <if test="pgjg == '2'">
+                    AND (pgjg.PGJG = #{pgjg})
+                </if>
+            </if>
+        </if>
+
+        <if test="hasFilter == true">
+            <!-- 不包含待评估的数据 -->
+            <if test="pgysId != null and pgysId != ''">
+                AND pgjg.PGYSID = #{pgysId}
+            </if>
+            <if test="beginDate != null">
+                AND pgjg.PGRQ &gt;= #{beginDate}
+            </if>
+            <if test="endDate != null">
+                AND pgjg.PGRQ &lt;= #{endDate}
+            </if>
+            <!-- 排除未评估的数据 -->
+            AND pgjg.PG_ID IS NOT NULL
+            <!-- 其他过滤条件同理 -->
+            <if test="zdlist != null and !zdlist.isEmpty()">
+                AND jbqk.ZD IN
+                <foreach item="zd" index="index" collection="zdlist" open="(" separator="," close=")">
+                    #{zd}
+                </foreach>
+            </if>
+            <if test="glztlist != null and !glztlist.isEmpty()">
+                AND jbqk.DAZT IN
+                <foreach item="glzt" index="index" collection="glztlist" open="(" separator="," close=")">
+                    #{glzt}
+                </foreach>
+            </if>
+            <if test="pgjg != null and !pgjg.isEmpty()">
+                <!-- 当 PGJG 为 1（有评估结果）时 -->
+                <if test="pgjg == '1'">
+                    <if test="pgjgText != null and pgjgText != ''">
+                        AND (pgjg.PGJG = #{pgjgText})
+                    </if>
+                    <!-- 如果没有具体的 pgjgText，也只查询有评估结果的档案 -->
+                    <if test="pgjgText == null or pgjgText == ''">
+                        AND (pgjg.PGJG IS NOT NULL AND pgjg.PGJG != '')
+                    </if>
+                </if>
+                <!-- 当 PGJG 为 2（无评估结果）时 -->
+                <if test="pgjg == '2'">
+                    AND (pgjg.PGJG = #{pgjg})
+                </if>
+            </if>
+        </if>
+    </select>
+
+    <!--    <select id="getPgjgGmdDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.resp.PgjgGmdDto"-->
+<!--            parameterType="com.shdata.health.gzss.sys.vo.PgjgGmdVo">-->
+<!--        SELECT * from CDC_GZSS.CDC_TB_PG_JG t-->
+<!--        WHERE t.DEL_FLAG='0'-->
+<!--        <if test="daId != null and daId != ''">-->
+<!--            and t.DA_ID = #{daId}-->
+<!--        </if>-->
+<!--        <if test="gmdJcks != null and gmdJcjs != ''">-->
+<!--            and t.-->
+<!--        </if>-->
+<!--    </select>-->
+    <select id="getPaginationInfoByDaId" resultType="com.shdata.health.gzss.sys.vo.PgjgXqGmdVo">
+        SELECT t.DA_ID as daId,
+        t.GMDJCKS as gmdJcks,
+        t.GMDJCJS as gmdJcjs,
+        t.GMD_XSS as gmdXss,
+        t.GMD_KSJLS as gmdKsjls
+        From CDC_GZSS.CDC_TB_PG_JG t
+        where t.DEL_FLAG = '0'
+        <if test="daId != null and daId != ''">
+            and t.DA_ID = #{daId}
+        </if>
+    </select>
+    <select id="findPgXshDataBy" resultType="com.shdata.health.gzss.sys.vo.PgjgXqVo"
+            parameterType="com.shdata.health.gzss.sys.vo.PgjgXshSearchVo">
+        SELECT jgxq.PG_ID as pgId,
+        jgxq.DA_ID as daId,
+        jgxq.JYXM as jyxm,
+        jgxq.XSS as xss,
+        jgxq.KSJLS as ksjls,
+        t.XSHJCKS as xshjcks,
+        t.XSHJCJS as xshjcjs
+        FROM CDC_GZSS.CDC_TB_PG_JG t
+        join CDC_GZSS.CDC_TB_PG_JG_XQ jgxq
+        on jgxq.PG_ID = t.PG_ID
+        WHERE
+        t.DEL_FLAG='0'
+        and jgxq.DEL_FLAG='0'
+        <if test="daId != null and daId != ''">
+            and t.DA_ID = #{daId}
+        </if>
+        <if test="jyxmCode != null and jyxmCode != null">
+            and jgxq.JYXM = #{jyxmCode}
+        </if>
+    </select>
+    <select id="findPgGmdDataByDaId" resultType="com.shdata.health.gzss.sys.vo.PgjgXqGmdVo">
+        SELECT t.PG_ID as pgId,
+        t.DA_ID as daId,
+        t.GMDJCKS as gmdJcks,
+        t.GMDJCJS as gmdJcjs,
+        t.GMD_XSS as gmdXss,
+        t.GMD_KSJLS as gmdKsjls
+        FROM CDC_GZSS.CDC_TB_PG_JG t
+        where t.DEL_FLAG='0'
+        <if test="daId != null and daId != ''">
+            and t.DA_ID = #{daId}
+        </if>
+    </select>
+    <select id="findPgJgDataByDaId" resultType="com.shdata.health.gzss.sys.vo.PgJgVo">
+        SELECT t.PG_ID as pgId,
+               t.DA_ID as daId,
+               t.ZD as zd,
+               t.GMDJCKS as gmdJcks,
+               t.GMDJCJS as gmdJcjs,
+               t.GMD_XSS as gmdXss,
+               t.GMD_KSJLS as gmdKsjls,
+               t.JYXMS as jyxms,
+               t.XSHJCKS as xshjcks,
+               t.XSHJCJS as xshjcjs,
+               t.FYXXKS as fyxxks,
+               t.FYXXJS as fyxxjs,
+               t.PGYSID as pgysid,
+               t.PGYS as pgys,
+               t.PGRQ as pgrq,
+               t.PGJG as pgjg,
+               t.GLJG as gljg
+        FROM CDC_GZSS.CDC_TB_PG_JG t
+        WHERE t.DEL_FLAG='0'
+        <if test="daId != null and daId != ''">
+            and t.DA_ID = #{daId}
+        </if>
+    </select>
+    <select id="findPgJgDataByDaIdandPgrq" resultType="com.shdata.health.gzss.sys.vo.PgJgVo" parameterType="com.shdata.health.gzss.sys.vo.PgSearchVo">
+        SELECT t.PG_ID as pgId,
+        t.DA_ID as daId,
+        t.ZD as zd,
+        t.GMDJCKS as gmdJcks,
+        t.GMDJCJS as gmdJcjs,
+        t.GMD_XSS as gmdXss,
+        t.GMD_KSJLS as gmdKsjls,
+        t.JYXMS as jyxms,
+        t.XSHJCKS as xshjcks,
+        t.XSHJCJS as xshjcjs,
+        t.FYXXKS as fyxxks,
+        t.FYXXJS as fyxxjs,
+        t.PGYSID as pgysid,
+        t.PGYS as pgys,
+        t.PGRQ as pgrq,
+        t.PGJG as pgjg,
+        t.GLJG as gljg
+        FROM CDC_GZSS.CDC_TB_PG_JG t
+        WHERE t.DEL_FLAG='0'
+        <if test="daId != null and daId != ''">
+            and t.DA_ID = #{daId}
+        </if>
+        <if test="pgrq != null">
+            and t.PGRQ = #{pgrq}
+        </if>
+
+    </select>
+    <select id="findPgJgDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.resp.PgJgDto"
+            parameterType="com.shdata.health.gzss.sys.vo.PgJgSearchVo">
+        SELECT
+        pgjgTbl.PG_ID AS pgId,
+        jbqk.DA_ID AS daId,
+        jbqk.XM AS xm,
+        jbqk.XB AS xb,
+        jbqk.SFZH AS sfzh,
+        jbqk.LXFS AS lxfs,
+        jbqk.ZD AS zd,
+        pgjgTbl.PGRQ AS pgrq,
+        pgjgTbl.PGJG AS pgjg,
+        jbqk.DAZT AS glzt,
+        pgjgTbl.PGYSID AS pgysid,
+        pgjgTbl.PGYS AS pgys
+        FROM "CDC_GZSS"."CDC_TB_DA_JBQK" jbqk
+        LEFT JOIN CDC_GZSS.CDC_TB_PG_JG pgjgTbl ON jbqk.DA_ID = pgjgTbl.DA_ID
+        WHERE jbqk.DEL_FLAG = '0'
+        <if test="glyljg != null and glyljg != ''">
+            AND jbqk.GLJG = #{glyljg}
+        </if>
+        <if test="zdlist != null and !zdlist.isEmpty()">
+            AND jbqk.ZD IN
+            <foreach item="zd" index="index" collection="zdlist" open="(" separator="," close=")">
+                #{zd}
+            </foreach>
+        </if>
+        <if test="glztlist != null and !glztlist.isEmpty()">
+            AND jbqk.DAZT IN
+            <foreach item="glzt" index="index" collection="glztlist" open="(" separator="," close=")">
+                #{glzt}
+            </foreach>
+        </if>
+        <if test="keyword != null and keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="pgjg != null and pgjg != ''">
+            <choose>
+                <when test="pgjg == '1'">
+                    <if test="pgjgText != null and pgjgText != ''">
+                        AND (pgjgTbl.PGJG = #{pgjgText} )
+                    </if>
+                    <if test="pgjgText == null or pgjgText == ''">
+                        AND pgjgTbl.PGJG IS NOT NULL
+                    </if>
+                </when>
+                <when test="pgjg == '2'">
+                    AND pgjgTbl.PGJG IS NULL
+                </when>
+            </choose>
+        </if>
+        <if test="pgysId != null and pgysId != ''">
+            AND (pgjgTbl.PGYSID = #{pgysId} OR pgjgTbl.PGYSID IS NULL)
+        </if>
+        <if test="beginDate != null">
+            AND (pgjgTbl.PGRQ &gt;= #{beginDate} OR pgjgTbl.PGRQ IS NULL)
+        </if>
+        <if test="endDate != null">
+            AND (pgjgTbl.PGRQ &lt;= #{endDate} OR pgjgTbl.PGRQ IS NULL)
+        </if>
+        ORDER BY jbqk."CREATE_TIME" DESC
+
+    </select>
+    <insert id="insertPgJg" parameterType="com.shdata.health.gzss.sys.entity.PgJg">
+        INSERT INTO CDC_GZSS.CDC_TB_PG_JG (PG_ID, DA_ID, ZD, GMDJCKS, GMDJCJS, GMD_XSS, GMD_KSJLS, JYXMS, XSHJCKS,
+                                           XSHJCJS, FYXXKS, FYXXJS, PGYSID, PGYS, PGRQ, GLJG, PGJG, DEL_FLAG, CREATE_BY,
+                                           CREATE_TIME, UPDATE_BY, UPDATE_TIME, REMARKS)
+        VALUES (#{pgId}, #{daId}, #{zd}, #{gmdjcks}, #{gmdjcjs}, #{gmdXss}, #{gmdKsjls}, #{jyxms}, #{xshjcks},
+                #{xshjcjs}, #{fyxxks}, #{fyxxjs}, #{pgysid}, #{pgys}, #{pgrq}, #{gljg}, #{pgjg}, #{delFlag},
+                #{createBy}, #{createTime}, #{updateBy}, #{updateTime}, #{remarks})
+    </insert>
+</mapper>

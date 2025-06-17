@@ -1,0 +1,17 @@
+
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8‰¨¥¥ 2J$665224d7-d8cb-4eb6-ad61-aaaea0a8edaf
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8à‹×ñ 2J$1c5dfdef-e115-407b-ba6d-9395519587da
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8¿ã×ñ 2J$d0502d95-7da0-455e-bf7e-0ebb7eef4ccc
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8¿ã×ñ 2J$ecf94894-9b98-425a-b45d-7cbfb811dacd
+Z
+java:S2176"Rename this class.(‚«òÄúÿÿÿÿ8Š¨¥¥ 2J$8e94346d-6f90-42c1-9869-111a9aad9f02
+‘
+java:S3252E"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(½¥þ8Âã×ñ 2J$84ff02b6-d67f-4738-8412-943ef8ef8f28
+’
+java:S3252H"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(¡¡‰ê8Ãã×ñ 2J$ed99ce7c-de66-4cbc-a271-473b0f982ba3
+~	java:S125X"<This block of commented-out lines of code should be removed.(Üƒí8Ãã×ñ 2J$930c5f96-85f4-4f8d-bdc5-28c304b38978
+~	java:S125]"<This block of commented-out lines of code should be removed.(êæ¤Í8Ãã×ñ 2J$19f17074-349f-42b2-bd15-9fafddb44e0e

@@ -1,0 +1,29 @@
+# 数据源配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@172.20.105.181:1521/orcl
+    username: cdc_gzss
+    password: cdc_gzss
+
+  data:
+    redis:
+      host: redis.shdata.me
+      password: shdata9001
+      port: 9001
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://app-4:7101/eureka
+
+logging:
+  file:
+    path: /HC_logs/gzss/
+  level:
+    root: ERROR
+    com.shdata.health.common.service.PrintService: INFO
+    com.shdata.health.gzss.sys.service.AssessmentService: INFO

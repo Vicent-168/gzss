@@ -1,0 +1,31 @@
+
+˜	java:S117;"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«äö¤üÿÿÿÿ8óÝÿ—´2J$5e74996f-e7a5-4fc2-a47c-a972e11f06c0
+…
+java:S4973ˆ"<Strings and Boxed types should be compared using "equals()".(áô”ûüÿÿÿÿ8óÝÿ—´2J$119ef252-233f-4436-8f2b-cbd21c7d8472
+£
+java:S1488Ò"_Immediately return this expression instead of assigning it to the temporary variable "daZzdVo".(÷š˜Ñ8óÝÿ—´2J$8f037863-de4e-4e2a-8284-964b91e521d7
+ˆ	java:S112~"FDefine and throw a dedicated exception instead of using a generic one.(¹õ½Ì8ôÝÿ—´2J$28623b07-3f04-4dfe-987a-e3301551f045
+Ž	java:S112“"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ôÝÿ—´2J$f3e6ce36-3bd6-48f9-8389-79b38d03f952
+…
+java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄÞ8õÝÿ—´2J$d20221bd-7c0d-4145-9334-90ad128ad1d0
+…
+java:S6813("BRemove this field injection and use constructor injection instead.(êæÄÞ8õÝÿ—´2J$a12b088b-31b0-4814-b858-afbf68ceac60
+y
+java:S1144Æ"0Remove this unused private "getDictName" method.(Œ”Íêýÿÿÿÿ8õÝÿ—´2J$50511d79-6a54-4f67-837a-0d24c592102f
+’
+java:S32523"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(þ¿Œ<8öÝÿ—´2J$384be73f-9f6f-42c3-8c9e-ddb79f9aaa02
+’
+java:S32527"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ëûé“8÷Ýÿ—´2J$a263ba6f-f29d-4254-8579-e72e3a7b25f3
+x
+java:S1854z"5Remove this useless assignment to local variable "i".(õ²žß8øÝÿ—´2J$0c394158-3ef6-4de7-b7f2-32198923c899
+i
+java:S1481z"&Remove this unused "i" local variable.(õ²žß8ùÝÿ—´2J$0c269c60-d15f-48d9-b4a1-c8969e1f1dbb
+”
+java:S3252‰"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(êòØµ8úÝÿ—´2J$81de1b9d-ec07-49ca-ba37-b89864cd976e
+„	java:S125"<This block of commented-out lines of code should be removed.(¤š©÷ûÿÿÿÿ8úÝÿ—´2J$d1589d10-6692-4302-ae99-b9d7328e6a72
+~
+java:S6213Ž":Rename this variable to not match a restricted identifier.(Ý´Ú­8úÝÿ—´2J$b5352f5b-be1d-42a0-933d-70e42cdd6c0e
+	java:S125"<This block of commented-out lines of code should be removed.(­üõ•8úÝÿ—´2J$fd445ea6-13d8-46c1-a8c6-a370e46cf650
+	java:S125•"<This block of commented-out lines of code should be removed.(žœáž8úÝÿ—´2J$27806314-1500-4488-9449-d20b259c55b6
+„	java:S125™"<This block of commented-out lines of code should be removed.(ý£è§þÿÿÿÿ8úÝÿ—´2J$15b6da07-99b3-41e3-9b76-4183f27a5b22
+„	java:S125¡"<This block of commented-out lines of code should be removed.(—”ò”øÿÿÿÿ8ûÝÿ—´2J$ad1c1d7c-f574-45ef-9bc7-6e87b84f8f96

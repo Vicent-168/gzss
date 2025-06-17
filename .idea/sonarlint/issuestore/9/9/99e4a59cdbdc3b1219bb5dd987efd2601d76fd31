@@ -1,0 +1,39 @@
+
+¦
+java:S1488Ν"bImmediately return this expression instead of assigning it to the temporary variable "daSftxDtos".(€ΜΟγ8«Μεκ΄2J$d530fcca-aa0a-4fd2-8bba-4084046c9f55
+	java:S112‡"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8¬Μεκ΄2J$f0aed4c6-ebe6-4dea-9ded-82e7a14e2900
+	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8¬Μεκ΄2J$2d801a45-4e5f-4c11-9a93-dd4cfdae5756
+…
+java:S6813+"BRemove this field injection and use constructor injection instead.(κζΔή8­Μεκ΄2J$685d7ef0-a2f3-4d93-9f7a-7f6f4b229f2b
+…
+java:S6813-"BRemove this field injection and use constructor injection instead.(κζΔή8­Μεκ΄2J$299a3977-38f3-49bc-8cdb-491004e2a1d3
+’
+java:S3252:"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Λϋι“8―Μεκ΄2J$762c62cc-2856-4712-b354-821988ad25ab
+
+java:S3776d"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ώ©¦¥ÿÿÿÿÿ8°Μεκ΄2J$9f96cbb8-3911-419d-bc6f-d00f7332eef5
+ƒ
+java:S1854x";Remove this useless assignment to local variable "zrysMap".(Γζ³ÿÿÿÿÿ8°Μεκ΄2J$b995ea65-7243-44b6-bed6-cef6e563d26d
+“
+java:S3252h"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(κςΨµ8°Μεκ΄2J$2b88e26e-58df-49aa-999d-fe28e4f1b042
+—
+java:S3252k"OUse static access with "com.shdata.health.common.utils.AuthUtil" for "getUser".(εΚρϊÿÿÿÿ8°Μεκ΄2J$d2199e2f-1935-469a-b642-4a5f5c573023
+†
+java:S1155m">Use isEmpty() to check whether the collection is empty or not.(γμΣΓϋÿÿÿÿ8±Μεκ΄2J$2098ab10-66ba-446d-8244-e4dc4eb3473f
+†
+java:S1155p">Use isEmpty() to check whether the collection is empty or not.(ΙλÒ«όÿÿÿÿ8±Μεκ΄2J$20cb01c1-9f7c-4cb8-b03c-1fadb9f0ef33
+t
+java:S1481x",Remove this unused "zrysMap" local variable.(Γζ³ÿÿÿÿÿ8²Μεκ΄2J$321e4a30-abf8-4e3c-a9c7-b4b259378e72
+‡
+java:S1155¤">Use isEmpty() to check whether the collection is empty or not.(§ζϊÿÿÿÿ8΄Μεκ΄2J$57c05561-2b9d-4392-9333-873d47a2974a
+‡
+java:S1155¬">Use isEmpty() to check whether the collection is empty or not.(§ζϊÿÿÿÿ8µΜεκ΄2J$5f8da8c8-a803-45b5-ab4f-9de0ba19aaf8
+Ύ
+java:S6204Ν"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(€ΜΟγ8¶Μεκ΄2J$a016e374-8dbe-4fbf-bc46-c8e7cf697e34
+–
+java:S3776Σ"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(Ή’Ύ8·Μεκ΄2J$fbe05e51-5444-4dbb-a1b8-64adeeaa0bf5
+Ύ
+java:S6204φ"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ηΦί8·Μεκ΄2J$7cf4dcff-9133-4a28-b0b0-991d4c05a2d7
+™
+java:S6201Φ"PReplace this instanceof check and cast with 'instanceof SfGmdjctxVo sfgmdjctxvo'(ά§³ÿÿÿÿÿ8·Μεκ΄2J$c2fc6407-168c-4f6e-aadf-f2167bcab021
+™
+java:S6201ά"PReplace this instanceof check and cast with 'instanceof SfXshjctxVo sfxshjctxvo'(‹φϋσψÿÿÿÿ8·Μεκ΄2J$dc2cf143-a7cc-40e4-aa1b-1ffa05342b3f

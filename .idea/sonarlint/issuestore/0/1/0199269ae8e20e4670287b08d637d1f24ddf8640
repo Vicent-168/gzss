@@ -1,0 +1,23 @@
+
+¦
+java:S1488"bImmediately return this expression instead of assigning it to the temporary variable "bsJwgzsVos".(«¯ ¡8ÌÜÆ÷©2J$332b7df2-de6a-4c27-8851-43eae1992953
+«
+java:S1488"bImmediately return this expression instead of assigning it to the temporary variable "bsJwgzsVos".(¿ÄÉüÿÿÿÿ8ÌÜÆ÷©2J$9ff432f1-0f3c-440a-ae1a-edda0c6d1052
+
+java:S22595"GA "NullPointerException" could be thrown; "jwgzsList" is nullable here.(”à³÷øÿÿÿÿ8ÄíÖ÷©2J$f8ce8c6e-de35-4e1b-9790-eb2651852f6b
+…
+java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÎÜÆ÷©2J$bb301237-5f9a-4a58-a779-9b19a3fdd64c
+•
+java:S37760"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(‚Ÿ‘8ÏÜÆ÷©2J$bde398e3-04f4-46aa-86db-635eddcaa235
+—
+java:S3252D"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ğÈ­™ÿÿÿÿÿ8ÒÜÆ÷©2J$42818447-13ea-4776-b767-08d6ccb505da
+—
+java:S3252E"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(‹­‹’ıÿÿÿÿ8ÒÜÆ÷©2J$29e02911-f903-4170-bb77-4c88ea174c1f
+—
+java:S3252G"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ì§º÷ùÿÿÿÿ8ÒÜÆ÷©2J$e780e4bd-9ccd-478a-b0ab-7e1ea4dbcd0d
+—
+java:S3252H"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".( ×™‚úÿÿÿÿ8ÒÜÆ÷©2J$3aadb6bb-8502-4082-ab32-98878a7c9b52
+”
+java:S3252r"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(¹ Ï˜ùÿÿÿÿ8ÔÜÆ÷©2J$ebbe5796-1254-4e24-9276-b4fb5262d459
+”
+java:S3252z"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(µŒ×Ìûÿÿÿÿ8ÔÜÆ÷©2J$8f3a5d4a-c713-4c52-8563-152c721bd2ef

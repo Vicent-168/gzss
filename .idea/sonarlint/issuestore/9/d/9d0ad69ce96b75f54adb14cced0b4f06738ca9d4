@@ -1,0 +1,33 @@
+
+“	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È ›8¤Äç“š2J$84592f87-fc7b-4baa-bef2-8d297709fabb
+¢
+java:S1488d"_Immediately return this expression instead of assigning it to the temporary variable "results".(Ì®¡À8¤Äç“š2J$8f14bb06-4ae4-4791-9f00-cc061d439555
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8¦Äç“š2J$44c53f39-2674-43c1-9276-dffdb0b01afa
+…
+java:S6813""BRemove this field injection and use constructor injection instead.(êæÄŞ8¦Äç“š2J$16481050-34c3-4ec7-b68a-a7483f000f8b
+’
+java:S3252/"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ëûé“8¨Äç“š2J$fcb3aab6-8232-4312-87a6-0883f506ffa1
+’
+java:S32524"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Üş¢ö8¨Äç“š2J$c94c607d-33ab-4609-b9d7-0981cf8ce64c
+’
+java:S32525"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ëĞø¶8¨Äç“š2J$ec9119e5-49b4-42f5-9c66-0b0dbe82bb73
+’
+java:S32526"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(…Ç§—8¨Äç“š2J$a4786ec2-0b5e-41ee-b0d5-29c646164bac
+—
+java:S32527"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(”Ò şÿÿÿÿ8©Äç“š2J$dbe295e5-79b5-493e-a33d-23cae68191c0
+’
+java:S32528"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(·ø£»8©Äç“š2J$f3b103ee-6f68-4281-9f46-582740e97ec9
+’
+java:S32529"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ìŒ·Ş8©Äç“š2J$c2f43afb-76d3-42cc-bcec-4425937fd3a4
+’
+java:S3252:"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ÿçÑà8©Äç“š2J$7f66c8e0-2105-4e7c-a1ce-f378dd9a5b3a
+’
+java:S3252;"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(éî»8©Äç“š2J$2c0b4dd9-681e-4229-aa06-c53f72f606a6
+—
+java:S3252<"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ª•œúÿÿÿÿ8©Äç“š2J$c3f81f31-a018-49a2-a07c-8b12ecba6fd3
+—
+java:S3252="OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(—Åş¥şÿÿÿÿ8©Äç“š2J$2451bf85-837b-4f01-84b7-cb8a66ff65e1
+~	java:S125e"<This block of commented-out lines of code should be removed.(–åå™8Å¤ë²2J$9e591080-add3-45da-bb92-58a45e6e5dfd
+
+java:S3252}"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(àûğî8«Äç“š2J$742f8311-7085-45ce-ad58-4d9ca56b46a6

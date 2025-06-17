@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.sys.mapper.DaJbqkllMapper">
+    <insert id="insertInfo" parameterType="com.shdata.health.gzss.sys.entity.DaJbqkll">
+        INSERT INTO CDC_TB_DA_JBQK_LL (
+            LLID, DA_ID, SFZH, DADJSJ, XM, YBKH, XB, CSRQ, LXFS, MZ, QTMZ, ZY,
+            JZDZ_SHENG, JZDZ_SHI, JZDZ_QX, JZDZ_JD, JZDZ_JWCN, JZDZ_XXDZ,
+            CCNL, JJNL, JJQZGQC, RSCS, JWGZS, CS, MXJB, MXJBYWZL, IOFCS,
+            SGJD, JDDSLM, SFXY, MRXYL, FMKGGZ, YJZL, WD1, WD2, WD3, WD4,
+            WD5, WD6, WD7, WD8, WD9, WD10, SG, TZ, BMISP, TB, JZYTZJT,
+            SB_MD, SB_TZ, ZHB_MD, ZHB_TZ, ZD, QTJB, MAJOR_O, HIP_F, GZPG,
+            XZGZ, XZJTBW, XZSPRQ, YZGZ, YZJTBW, YZSPRQ, YYQK, DAZT, SFZSID,
+            SFZS, GLJG, DJZID, DJZ, JTYSID, JTYS, DAZTDJSJ, del_flag,
+            create_by, create_time, update_by, update_time, remarks
+        )
+        VALUES (
+                   #{llid}, #{daId}, #{sfzh}, #{dadjsj}, #{xm}, #{ybkh}, #{xb}, #{csrq}, #{lxfs},
+                   #{mz}, #{qtmz}, #{zy}, #{jzdzSheng}, #{jzdzShi}, #{jzdzQx}, #{jzdzJd},
+                   #{jzdzJwcn}, #{jzdzXxdz}, #{ccnl}, #{jjnl}, #{jjqzgqc}, #{rscs},
+                   #{jwgzs}, #{cs}, #{mxjb}, #{mxjbywzl}, #{iofcs}, #{sgjd}, #{jddslm},
+                   #{sfxY}, #{mrxyl}, #{fmkggz}, #{yjzl}, #{wd1}, #{wd2}, #{wd3},
+                   #{wd4}, #{wd5}, #{wd6}, #{wd7}, #{wd8}, #{wd9}, #{wd10}, #{sg},
+                   #{tz}, #{bmisp}, #{tb}, #{jzytzjt}, #{sbMd}, #{sbTz}, #{zhbMd},
+                   #{zhbTz}, #{zd}, #{qtjb}, #{majorO}, #{hipF}, #{gzpg}, #{xzgz},
+                   #{xzjtBW}, #{xzsprq}, #{yzgz}, #{yzjtBW}, #{yzsprq}, #{yyqk},
+                   #{dazt}, #{sfzsid}, #{sfzs}, #{gljg}, #{djzid}, #{djz},
+                   #{jtysid}, #{jtys}, #{daztdjsj}, #{delflag}, #{createBy},
+                   #{createTime}, #{updateBy}, #{updateTime}, #{remarks}
+               )
+    </insert>
+
+    <select id="findByPage" resultType="com.shdata.health.gzss.sys.vo.resp.DaJbqkllVo"
+            parameterType="com.shdata.health.gzss.sys.vo.DaJbqkllSearchVo">
+        SELECT * FROM CDC_GZSS.CDC_TB_DA_JBQK_LL t WHERE t.del_flag='0'
+        <if test="needOrder">ORDER BY t.update_time DESC</if>
+    </select>
+
+</mapper>

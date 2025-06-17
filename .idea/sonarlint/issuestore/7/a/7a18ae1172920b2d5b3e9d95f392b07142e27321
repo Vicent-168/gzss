@@ -1,0 +1,9 @@
+
+“
+java:S3252:"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(‚ϋ©8…†χε΄2J$8f6a97fd-1d8e-4314-8431-d70272f72992
+
+java:S3252="PUse static access with "org.apache.commons.lang3.time.DateUtils" for "addYears".(ªΫ…Μωÿÿÿÿ8ό°κε΄2J$004dec15-7f37-4f6c-a332-2b87e91217ee
+ƒ
+java:S1128"@Remove this unused import 'org.apache.ibatis.annotations.Param'.(α¬Σ²8“―πε΄2J$bda22dcd-33f3-44e0-af10-c421be904a5d
+
+java:S1128"FRemove this unused import 'org.apache.velocity.util.ArrayListWrapper'.(«Π ²ύÿÿÿÿ8“―πε΄2J$5529eb79-cb98-434d-bddc-e0a3dacc8bf3

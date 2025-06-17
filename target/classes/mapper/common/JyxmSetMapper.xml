@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.common.mapper.JyxmSetMapper">
+    <resultMap id="JyxmSetVoResultMap" type="com.shdata.health.gzss.common.vo.JyxmSetVo">
+        <id property="id" column="ID" />
+        <result property="jyXmdm" column="JY_XMDM" />
+        <result property="jyXmmc" column="JY_XMMC" />
+        <result property="bigCode" column="BIG_CODE" />
+        <result property="sexType" column="SEX_TYPE" />
+        <result property="ageFrom" column="AGE_FROM" />
+        <result property="ageTo" column="AGE_TO" />
+        <result property="sort" column="SORT" />
+        <result property="dw" column="DW" />
+        <result property="type" column="TYPE" />
+        <result property="format1" column="FORMAT1" />
+        <result property="round" column="ROUND" />
+        <result property="format2" column="FORMAT2" />
+        <result property="jyCkz" column="JY_CKZ" />
+        <result property="fromValue" column="FROM_VALUE" />
+        <result property="fromSign" column="FROM_SIGN" />
+        <result property="toValue" column="TO_VALUE" />
+        <result property="toSign" column="TO_SIGN" />
+        <result property="initJs" column="INIT_JS" />
+        <result property="changeJs" column="CHANGE_JS" />
+        <result property="bz" column="BZ" />
+        <result property="createDate" column="CREATE_DATE" />
+        <result property="updateDate" column="UPDATE_DATE" />
+    </resultMap>
+
+    <select id="findByPage" resultMap="JyxmSetVoResultMap"
+            parameterType="com.shdata.health.gzss.common.vo.JyxmSetSearchVo">
+        SELECT * FROM CDC_M_JYZB_SET t WHERE t.DEL_FLAG='0'
+        <if test="needOrder">ORDER BY t.UPDATE_TIME DESC</if>
+    </select>
+    <select id="findByCriteria" resultMap="JyxmSetVoResultMap">
+        SELECT *
+        FROM CDC_GZSS.CDC_M_JYZB_SET t
+        WHERE t.DEL_FLAG ='0'
+          and  t.JY_XMDM = #{jyXmdm}
+    </select>
+    <select id="findJyxmByJyzl" resultMap="JyxmSetVoResultMap">
+        SELECT * from CDC_GZSS.CDC_M_JYZB_SET t
+        where t.DEL_FLAG='0'
+        and t.BIG_CODE=#{bigCode}
+    </select>
+    <select id="findJyzlByJyxm" resultMap="JyxmSetVoResultMap">
+        SELECT *
+        from CDC_GZSS.CDC_M_JYZB_SET t
+        where t.DEL_FLAG = '0'
+          and t.JY_XMMC = #{jyxmmc}
+    </select>
+</mapper>

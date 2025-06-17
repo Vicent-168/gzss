@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.sys.mapper.DaJbqkMapper">
+    <resultMap id="DaJbqkVoMap" type="com.shdata.health.gzss.sys.vo.resp.DaJbqkVo">
+        <id column="DA_ID" property="daId"/>
+        <result column="SFZH" property="sfzh"/>
+        <result column="DADJSJ" property="dadjsj"/>
+        <result column="XM" property="xm"/>
+        <result column="YBKH" property="ybkh"/>
+        <result column="XB" property="xb"/>
+        <result column="CSRQ" property="csrq"/>
+        <result column="LXFS" property="lxfs"/>
+        <result column="MZ" property="mz"/>
+        <result column="QTMZ" property="qtmz"/>
+        <result column="ZY" property="zy"/>
+        <result column="JZDZ_SHENG" property="jzdzSheng"/>
+        <result column="JZDZ_SHI" property="jzdzShi"/>
+        <result column="JZDZ_QX" property="jzdzQx"/>
+        <result column="JZDZ_JD" property="jzdzJd"/>
+        <result column="JZDZ_JWCN" property="jzdzJwcn"/>
+        <result column="JZDZ_XXDZ" property="jzdzXxdz"/>
+        <result column="CCNL" property="ccnl"/>
+        <result column="JJNL" property="jjnl"/>
+        <result column="JJQZGQC" property="jjqzgqc"/>
+        <result column="RSCS" property="rscs"/>
+        <result column="JWGZS" property="jwgzs"/>
+        <result column="CS" property="cs"/>
+        <result column="MXJB" property="mxjb" />
+        <result column="MXJBYWZL" property="mxjbywzl" />
+        <result column="IOFCS" property="iofcs"/>
+        <result column="SGJD" property="sgjd"/>
+        <result column="JDDSLM" property="jddslm"/>
+        <result column="SFXY" property="sfxy"/>
+        <result column="MRXYL" property="mrxyl"/>
+        <result column="FMKGGZ" property="fmkggz"/>
+        <result column="YJZL" property="yjzl"/>
+        <result column="WD1" property="wd1"/>
+        <result column="WD2" property="wd2"/>
+        <result column="WD3" property="wd3"/>
+        <result column="WD4" property="wd4"/>
+        <result column="WD5" property="wd5"/>
+        <result column="WD6" property="wd6"/>
+        <result column="WD7" property="wd7"/>
+        <result column="WD8" property="wd8"/>
+        <result column="WD9" property="wd9"/>
+        <result column="WD10" property="wd10"/>
+        <result column="SG" property="sg"/>
+        <result column="TZ" property="tz"/>
+        <result column="BMISP" property="bmisp"/>
+        <result column="TB" property="tb"/>
+        <result column="JZYTZJT" property="jzytzjt"/>
+        <result column="SB_MD" property="sbMd"/>
+        <result column="SB_TZ" property="sbTz"/>
+        <result column="ZHB_MD" property="zhbMd"/>
+        <result column="ZHB_TZ" property="zhbTz"/>
+        <result column="ZD" property="zd"/>
+        <result column="QTJB" property="qtjb"/>
+        <result column="MAJOR_O" property="majorO"/>
+        <result column="HIP_F" property="hipF"/>
+        <result column="GZPG" property="gzpg"/>
+        <result column="XZGZ" property="xzgz"/>
+        <result column="XZJTBW" property="xzjtbw"/>
+        <result column="XZSPRQ" property="xzsprq"/>
+        <result column="YZGZ" property="yzgz"/>
+        <result column="YZJTBW" property="yzjtbw"/>
+        <result column="YZSPRQ" property="yzsprq"/>
+        <result column="YYQK" property="yyqk"/>
+        <result column="YJZL" property="yjzl"/>
+        <result column="DAZT" property="dazt"/>
+        <result column="DAZTDJSJ" property="daztdjsj"/>
+        <result column="JTYSID" property="jtysid"/>
+        <result column="JTYS" property="jtys"/>
+        <result column="SFZSID" property="sfzsid"/>
+        <result column="SFZS" property="sfzs"/>
+        <result column="GLJG" property="gljg"/>
+        <result column="DJZID" property="djzid"/>
+        <result column="DJZ" property="djz"/>
+        <result column="DEL_FLAG" property="delFlag"/>
+        <result column="CREATE_BY" property="createBy"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="UPDATE_BY" property="updateBy"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
+        <result column="REMARKS" property="remarks"/>
+    </resultMap>
+
+    <select id="findByPage" resultType="com.shdata.health.gzss.sys.vo.resp.DaJbqkVo"
+            parameterType="com.shdata.health.gzss.sys.vo.DaJbqkSearchVo">
+        SELECT * FROM CDC_GZSS.CDC_TB_DA_JBQK t WHERE t.DEL_FLAG='0'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            t.SFZH LIKE #{keyword}
+            OR t.YBKH LIKE #{keyword}
+            OR t.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="gljg != null and gljg != ''">
+            AND t.GLJG = #{gljg}
+        </if>
+        <if test="startDate != null and endDate != null">
+            AND t.DADJSJ BETWEEN #{startDate} AND #{endDate}
+        </if>
+        <if test="zd != null and zd != ''">
+            AND t.ZD = #{zd}
+        </if>
+        <if test="dazt != null and dazt != ''">
+            AND t.DAZT = #{dazt}
+        </if>
+        <if test="sfzs != null and sfzs != ''">
+            AND t.SFZS = #{sfzs}
+        </if>
+        <if test="jtdz != null and jtdz != ''">
+            AND t.JTDZ = #{jtdz}
+        </if>
+        <if test="needOrder">
+            ORDER BY t.UPDATE_TIME DESC
+        </if>
+    </select>
+    <!-- 根据 keyword 查询 -->
+    <select id="selectByKeyword" parameterType="String" resultType="com.shdata.health.gzss.sys.entity.DaJbqk">
+        SELECT * FROM CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        WHERE jbqk.DEL_FLAG ='0'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+    </select>
+
+    <!-- 根据唯一 keyword 查询 -->
+    <select id="selectByUniqueKeyword" parameterType="String" resultType="com.shdata.health.gzss.sys.entity.DaJbqk">
+        SELECT * FROM CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        WHERE jbqk.DEL_FLAG ='0'
+        <if test="keyword != null and keyword != ''">
+            AND ( jbqk.SFZH LIKE  #{keyword} ||
+            OR jbqk.YBKH LIKE  #{keyword} )
+        </if>
+    </select>
+    <select id="findByDaId" resultMap="DaJbqkVoMap">
+        select * from CDC_GZSS.CDC_TB_DA_JBQK t
+        WHERE t.DEL_FLAG ='0'
+         AND t.DA_ID = #{daId}
+    </select>
+    <select id="getArchiveIdByPatientNumber" resultType="java.lang.String">
+        select jbqk.DA_ID as daId from CDC_GZSS.CDC_TB_DA_JBQK jbqk where jbqk.DEL_FLAG='0' and jbqk.YBKH= #{patientNumber}
+    </select>
+    <select id="findDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.DaJbqkRespVo" parameterType="com.shdata.health.gzss.sys.vo.DaJbqkSearchVo">
+        SELECT
+        t.DA_ID as daId,
+        t.XM as xm,
+        t.XB as xb,
+        t.SFZH as sfzh,
+        t.LXFS as lxfs,
+        t.JZDZ_SHENG as jzdzSheng,
+        t.JZDZ_SHI as jzdzShi,
+        t.JZDZ_QX as jzdzQx,
+        t.JZDZ_JD as jzdzJd,
+        t.JZDZ_JWCN as jzdzJwcn,
+        t.JZDZ_XXDZ as jzdzXxdz,
+        t.DAZT as dazt,
+        t.ZD as zd,
+        t.DADJSJ as dadjsj,
+        t.JTYSID as jtysid,
+        t.JTYS as jtys,
+        t.SFZSID as sfzsid,
+        t.SFZS as sfzs
+        FROM CDC_GZSS.CDC_TB_DA_JBQK t
+        WHERE DEL_FLAG = '0'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            t.SFZH LIKE #{keyword}
+            OR t.YBKH LIKE #{keyword}
+            OR t.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="glyljg != null and glyljg != ''">
+            AND t.GLJG = #{glyljg}
+        </if>
+        <if test="startDate != null and endDate != null">
+            AND t.DAZTDJSJ BETWEEN #{startDate} AND #{endDate}
+        </if>
+        <if test="zdlist != null and zdlist.size() > 0">
+            AND t.ZD IN
+            <foreach item="item" index="index" collection="zdlist" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="daztlist != null and daztlist.size() > 0">
+            AND t.DAZT IN
+            <foreach item="item" index="index" collection="daztlist" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="sfzsid != null and sfzsid != ''">
+            AND t.SFZSID = #{sfzsid}
+        </if>
+        <if test="jtysid != null and jtysid != ''">
+            AND t.JTYSID = #{jtysid}
+        </if>
+        ORDER BY DADJSJ ASC
+    </select>
+    <select id="findBySfzh" resultMap="DaJbqkVoMap">
+        SELECT * FROM CDC_GZSS.CDC_TB_DA_JBQK t WHERE t.DEL_FLAG='0' and t.SFZH=#{sfzh}
+    </select>
+    <select id="findPsersonalInfoByDaId" resultType="com.shdata.health.gzss.sys.vo.PersonalInfoVo">
+        SELECT t.DA_ID      as daId,
+               t.XM         as xm,
+               t.XB         as xb,
+               t.YBKH      as ybkh,
+               t.SFZH       as sfzh,
+               t.LXFS       as lxfs,
+               t.CSRQ       as csrq,
+               t.JZDZ_SHENG as jzdzSheng,
+               t.JZDZ_SHI   as jzdzShi,
+               t.JZDZ_QX    as jzdzQx,
+               t.JZDZ_JD    as jzdzJd,
+               t.JZDZ_JWCN  as jzdzJwcn,
+               t.JZDZ_XXDZ  as jzdzXxdz,
+               t.ZD         as zd
+        FROM CDC_GZSS.CDC_TB_DA_JBQK t
+        WHERE t.DEL_FLAG = '0'
+          and t.DA_ID = #{daId}
+    </select>
+    <select id="getPsersonalInfoBKeyword" resultType="com.shdata.health.gzss.sys.vo.PersonalInfoVo"
+            parameterType="com.shdata.health.gzss.sys.vo.PersonalSearchVo">
+        SELECT t.DA_ID      as daId,
+               t.XM         as xm,
+               t.XB         as xb,
+               t.YBKH      as ybkh,
+               t.SFZH       as sfzh,
+               t.LXFS       as lxfs,
+               t.CSRQ       as csrq,
+               t.JZDZ_SHENG as jzdzSheng,
+               t.JZDZ_SHI   as jzdzShi,
+               t.JZDZ_QX    as jzdzQx,
+               t.JZDZ_JD    as jzdzJd,
+               t.JZDZ_JWCN  as jzdzJwcn,
+               t.JZDZ_XXDZ  as jzdzXxdz,
+               t.ZD         as zd
+        FROM CDC_GZSS.CDC_TB_DA_JBQK t
+        WHERE t.DEL_FLAG = '0'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            t.SFZH LIKE #{keyword}
+            OR t.YBKH LIKE #{keyword}
+            OR t.XM LIKE #{keyword}
+            )
+        </if>
+    </select>
+</mapper>

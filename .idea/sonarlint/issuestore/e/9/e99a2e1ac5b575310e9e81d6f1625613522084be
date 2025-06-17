@@ -1,0 +1,14 @@
+
+Š
+java:S1192e"GDefine a constant instead of duplicating this literal "failed" 3 times.(×Òñù8“š‰¡²2J$8ffa1fea-4b3c-4cec-9bdd-0bf8e206d279
+
+java:S1192f"HDefine a constant instead of duplicating this literal "message" 5 times.(îÇ€ªúÿÿÿÿ8”š‰¡²2J$6f02d782-cfd1-4eec-b83b-4da3592a2c65
+Š
+java:S1192e"GDefine a constant instead of duplicating this literal "status" 5 times.(×Òñù8”š‰¡²2J$bbf812ad-b784-464d-b348-315a0a8ed4ce
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8•š‰¡²2J$707794c4-608d-4770-b97c-05adcbfa9a2b
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8•š‰¡²2J$0c7a2789-d017-46bd-803f-48a1dbc9fcdb
+	java:S125"<This block of commented-out lines of code should be removed.(ÔŸá™8Ò¤öšµ2J$1b7db153-c9f9-495f-b2ce-ffabdb847754
+}
+java:S1128	"5Remove this unused import 'jakarta.validation.Valid'.(ÀãÅ”ûÿÿÿÿ8Ò¤öšµ2J$dae56d04-2299-4235-88b3-0435aa25da46

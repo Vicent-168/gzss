@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.common.dict.YljgMapper">
+    <select id="getName" resultType="java.lang.String">
+        SELECT t.CNAME
+        FROM CDC_GZSS.C_DIC_YLJG t
+        WHERE t.DEL_FLAG = '0'
+          AND t.YLJGDM = #{yljgdm}
+    </select>
+</mapper>

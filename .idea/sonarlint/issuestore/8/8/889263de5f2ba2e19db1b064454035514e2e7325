@@ -1,0 +1,128 @@
+
+”	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×¨âç8ëÄ—µ2J$ef6d64fb-76df-4ebf-9f1e-7283389b2c8d
+“	java:S117¡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÎÁ~8ëÄ—µ2J$2b49c2eb-8d50-419e-842b-08445069bced
+”	java:S117³"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×¨âç8ëÄ—µ2J$143db64b-75f2-4809-9fc6-64461f99d4b2
+“	java:S117´"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÎÁ~8ëÄ—µ2J$16edd878-1719-40a0-a853-cf439c38ccbb
+x
+java:S1066"/Merge this if statement with the enclosing one.(û—¢—üÿÿÿÿ8ëÄ—µ2J$d07155c4-5d83-4d6e-9423-c269a1f616bd
+x
+java:S1066Ÿ"/Merge this if statement with the enclosing one.(û—¢—üÿÿÿÿ8ìÄ—µ2J$ec808b25-58a7-49bd-9364-b5b7e67dfe61
+«
+java:S1488ı"bImmediately return this expression instead of assigning it to the temporary variable "resultList".(€Õƒæıÿÿÿÿ8îÄ—µ2J$e56153c2-cf2a-4d24-908b-b75db5c2e4f2
+s
+java:S3740Ø"/Provide the parametrized type for this generic.(«Õßâ8õÄ—µ2J$f2c3f843-4939-442d-9576-fe4ae80bf4a0
+s
+java:S3740Ø"/Provide the parametrized type for this generic.(«Õßâ8õÄ—µ2J$910d16b1-0e42-46a4-a80e-9536ae4c112a
+
+java:S1192Š"KDefine a constant instead of duplicating this literal "yyyy-MM-dd" 4 times.(¥Ò˜8öÄ—µ2J$963732af-6e94-488b-a68c-2ff3be8f36e0
+…
+java:S6813;"BRemove this field injection and use constructor injection instead.(êæÄŞ8úÄ—µ2J$1f5914a4-409a-4337-92d0-0175e0c722aa
+…
+java:S6813>"BRemove this field injection and use constructor injection instead.(êæÄŞ8úÄ—µ2J$53378a68-8f56-402a-8eb3-15fa924a6259
+…
+java:S6813A"BRemove this field injection and use constructor injection instead.(êæÄŞ8úÄ—µ2J$0b7140c9-d6cf-4505-9f6d-122779950672
+…
+java:S6813D"BRemove this field injection and use constructor injection instead.(êæÄŞ8úÄ—µ2J$6b6d625e-b6a2-4ad5-adce-ae4476a27759
+…
+java:S6813G"BRemove this field injection and use constructor injection instead.(êæÄŞ8úÄ—µ2J$aea49d42-1b45-4711-8db9-411346c5fc83
+…
+java:S6813J"BRemove this field injection and use constructor injection instead.(êæÄŞ8úÄ—µ2J$bb411838-1a28-4213-a452-5be9ffb76355
+v
+java:S1144Ü"-Remove this unused private "validate" method.(Ä¶—‡ıÿÿÿÿ8ıÄ—µ2J$0e39749c-207d-4a2f-8cda-1913d32ae986
+
+java:S1144"8Remove this unused private "setDefaultDateRange" method.(ˆ¢Á˜ûÿÿÿÿ8ıÄ—µ2J$a2e2ea96-930b-4a0f-a945-65d31976259d
+y
+java:S1144›"0Remove this unused private "getDictName" method.(Œ”Íêıÿÿÿÿ8ıÄ—µ2J$0d45890f-9eb8-42f5-926f-519c7dec309d
+
+java:S3252W"GUse static access with "com.alibaba.excel.EasyExcelFactory" for "read".(¾ò÷ùÿÿÿÿ8€Å—µ2J$6b641d49-70c6-406e-9ea1-a90b0651d5d0
+‡
+java:S1854">Remove this useless assignment to local variable "errorField".(Ø›–Òşÿÿÿÿ8Å—µ2J$e73a0956-6a02-4bde-8b55-903333cdfe4a
+‡
+java:S1854‡">Remove this useless assignment to local variable "errorField".(éøÚÄÿÿÿÿÿ8Å—µ2J$27fa5ac7-e5b3-4b51-a8f7-fc56a9e41676
+†
+java:S1854‘"=Remove this useless assignment to local variable "hintValue".(½Éâîûÿÿÿÿ8Å—µ2J$6e691938-f56f-45a0-b9d1-bbb678348e45
+|
+java:S6213s":Rename this variable to not match a restricted identifier.(‘n8Å—µ2J$c400e991-cb27-4590-9af8-20517f1ab2c6
+r
+java:S1481u"/Remove this unused "errorField" local variable.(¼„ø8Å—µ2J$a788b7d7-1a7d-4f77-91a2-0744eca12c20
+w
+java:S1481‘".Remove this unused "hintValue" local variable.(½Éâîûÿÿÿÿ8‚Å—µ2J$c117ec7d-a629-46c9-82de-ab329a1f31e7
+“
+java:S3252—"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(ş¿Œ<8‚Å—µ2J$3f360623-2a50-4df8-b11e-2230675c3372
+š
+java:S3252š"QUse static access with "com.shdata.health.common.utils.AuthUtil" for "getUserId".(‹Û›»ùÿÿÿÿ8ƒÅ—µ2J$fa10b707-f8bf-4b0e-932c-c0bd3c39a270
+~
+java:S6213±":Rename this variable to not match a restricted identifier.(˜¨³–8„Å—µ2J$18930d67-76c6-4138-be23-798b25643e99
+“
+java:S3252Ï"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(ş¿Œ<8‡Å—µ2J$c4979b84-6a57-4bcb-b734-e3cf3c30664e
+š
+java:S3252Ğ"QUse static access with "com.shdata.health.common.utils.AuthUtil" for "getUserId".(‹Û›»ùÿÿÿÿ8‡Å—µ2J$f4a7905c-b9e5-4b23-bd57-068106e0c6be
+˜
+java:S3252Ñ"OUse static access with "com.shdata.health.common.utils.AuthUtil" for "getUser".(­ŒÏúÿÿÿÿ8‡Å—µ2J$f1cf153d-13c6-4ccc-a168-131a01294d6a
+š
+java:S3252ß"QUse static access with "com.shdata.health.common.utils.AuthUtil" for "getUserId".(É†øŸüÿÿÿÿ8‰Å—µ2J$ce69e61a-26f3-457c-807e-477afecc5f5b
+”
+java:S3252ä"QUse static access with "com.shdata.health.common.utils.AuthUtil" for "getUserId".(ÿ‹ún8ŠÅ—µ2J$36263e8e-2749-4fd3-abb6-caf00303d46a
+–
+java:S3776÷"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(šÉâ8ŠÅ—µ2J$a3cd738f-9385-4a90-9d7f-e5d5c37b7356
+|
+java:S1854Œ"8Remove this useless assignment to local variable "gljg".(ì¦®‘8ŠÅ—µ2J$650af8fb-cb03-44a2-a0a3-69656e9cc0e3
+ƒ
+java:S1854‹":Remove this useless assignment to local variable "sfysid".(˜ï›ûÿÿÿÿ8ŠÅ—µ2J$9bb57c59-e38f-4a0e-8ea6-b92fb9a062d5
+|
+java:S1854Š"8Remove this useless assignment to local variable "sffs".(üı„ÿ8ŠÅ—µ2J$3589fa04-01c0-43f2-b72a-555cc908904e
+k
+java:S1905ù"'Remove this unnecessary cast to "List".(óúûú8‹Å—µ2J$79c47cc4-00bd-40b8-9fde-bc7eccdc30da
+–
+java:S3252ÿ"MUse static access with "cn.hutool.core.collection.CollUtil" for "isNotEmpty".(¢š¦´şÿÿÿÿ8Å—µ2J$3c59cd5a-a0d9-45fd-9678-ed545192d470
+‘
+java:S3252‘"MUse static access with "cn.hutool.core.collection.CollUtil" for "isNotEmpty".(Ö„8Å—µ2J$7c8de5d3-8929-48d1-8a21-c618d1470c9b
+“
+java:S3252«"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(îış÷8Å—µ2J$9563035a-985b-4069-82d9-c22e400190e1
+“
+java:S3252¬"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Óİû8Å—µ2J$df67bd78-df61-4af5-b1bd-3d8401a8e536
+“
+java:S3252®"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(§Ö„ò8Å—µ2J$698ebe06-c8d7-4918-a69c-0365e49b6c9e
+“
+java:S3252¯"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(š÷ı8Å—µ2J$0937a780-7efe-4b38-8891-41945827b8b2
+˜
+java:S3252°"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(¥İÇÙüÿÿÿÿ8Å—µ2J$5540c6be-05ea-48e9-b6fe-2dae79f0c253
+’
+java:S3252±"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Šçí88Å—µ2J$09a5101a-9e01-4b1f-bda8-6b31942b54af
+’
+java:S3252²"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(¢ñÕp8Å—µ2J$d228912e-c76a-4a24-afd1-52de31547273
+“
+java:S3252³"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(²úù•8Å—µ2J$915dde45-9278-454b-a5d4-6ade3ca14922
+˜
+java:S3252´"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(æ²‡úÿÿÿÿÿ8Å—µ2J$03ea41f8-70aa-4009-8014-fa314d295940
+•
+java:S3252à"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(˜è‡ûÿÿÿÿ8‘Å—µ2J$1dd9ac66-0b54-454a-a760-a81bfcc565d5
+
+java:S3252¨"JUse static access with "cn.hutool.core.collection.CollUtil" for "isEmpty".(ÏòØÂ8“Å—µ2J$43bcf095-da1b-44e4-96c5-5455f8112b98
+
+java:S1854Ú";Remove this useless assignment to local variable "results".(İ€å8”Å—µ2J$48f5dd86-46ab-4370-b553-da11b7502efa
+p
+java:S1481Ú",Remove this unused "results" local variable.(İ€å8•Å—µ2J$a4cf8b87-c841-450b-8932-ce82f4012e8d
+
+java:S3252İ"JUse static access with "cn.hutool.core.collection.CollUtil" for "isEmpty".(ÏòØÂ8•Å—µ2J$df0d094f-4a7f-4139-be61-324c78c054d0
+¾
+java:S6204ë"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ª™¨¹8•Å—µ2J$b901e730-27cb-40b0-8d56-f626f63513cc
+t
+java:S1172„"+Remove this unused method parameter "daid".(‘”„¨ûÿÿÿÿ8–Å—µ2J$3fcc48a2-ab80-4e69-86b2-430bc61e09bb
+o
+java:S1172ˆ"+Remove this unused method parameter "daId".(¼¯¶8–Å—µ2J$8eec2671-3612-4c34-899e-9753ec8ac15b
+ˆ
+java:S1854í"?Remove this useless assignment to local variable "pageRecords".(»ãìÖşÿÿÿÿ8–Å—µ2J$98edbe0c-8ed0-4eb3-89f4-61f38fc39699
+	java:S125"<This block of commented-out lines of code should be removed.(¹†Ş¬8–Å—µ2J$5b9b0f39-ecb4-4b62-8948-2be03f9bff22
+	java:S125Å"<This block of commented-out lines of code should be removed.(£Ş¦Í8–Å—µ2J$91fbf259-fdd4-4bd6-bee6-75cd2fc1c4b4
+y
+java:S1481í"0Remove this unused "pageRecords" local variable.(»ãìÖşÿÿÿÿ8˜Å—µ2J$796561e3-82a5-43d9-bba3-2b1d3e2343a2
+–
+java:S3776Ö"RRefactor this method to reduce its Cognitive Complexity from 41 to the 15 allowed.(íİàª8™Å—µ2J$d686223b-4548-45c3-b35b-5d735f02d87e
+„	java:S125¦"<This block of commented-out lines of code should be removed.(ß¶éØøÿÿÿÿ8šÅ—µ2J$975f015b-f84e-43a2-8198-4e196aa404cb
+™
+java:S3252İ"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(ñê…ıúÿÿÿÿ8šÅ—µ2J$bb5b95ce-9cc2-4009-b208-c0ab56cc02b9
+~
+java:S6213å":Rename this variable to not match a restricted identifier.(Øùïø8›Å—µ2J$275ea0e6-7ca8-4345-ae95-df95e9a4f9e5
+Š
+java:S6541÷"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 86 to 64, Complexity from 16 to 14, Nesting Level from 4 to 2, Number of Variables from 19 to 6.(šÉâ8 Å—µ2J$544b2cc2-e9a6-46e3-aa7c-39f1607bc06a

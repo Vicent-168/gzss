@@ -1,0 +1,10 @@
+
+¥
+java:S1488'"bImmediately return this expression instead of assigning it to the temporary variable "jyxmSetVos".(ë°ùª8’Ëä‹2J$f078e40a-de88-4872-90bd-88c3f93b5acc
+¥
+java:S1488}"bImmediately return this expression instead of assigning it to the temporary variable "jyxmSetVos".(‰½õ8¼ü™‹2J$cadb8607-db2f-4031-aad0-c6e844d6bb76
+š	java:S135g"YReduce the total number of break and continue statements in this loop to use at most one.(²­ëI8¼ü™‹2J$a5819fa4-62b6-42dd-b052-f2022a51f253
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8¾ü™‹2J$960783fa-afe8-468d-80e0-c518e40a1d18
+’
+java:S32525"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ëûé“8Àü™‹2J$8460c623-16f7-469a-850f-1e3d15e82930

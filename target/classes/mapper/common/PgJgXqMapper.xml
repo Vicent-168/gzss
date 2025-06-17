@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.common.mapper.PgJgXqMapper">
+
+    <select id="findByPage" resultType="com.shdata.health.gzss.common.vo.PgJgXqVo"
+            parameterType="com.shdata.health.gzss.common.vo.PgJgXqSearchVo">
+        SELECT * FROM CDC_TB_PG_JG_XQ t WHERE t.del_flag='0'
+        <if test="needOrder">ORDER BY t.update_time DESC</if>
+    </select>
+
+    <insert id="insertPgJgXq" parameterType="com.shdata.health.gzss.common.entity.PgJgXq">
+        INSERT INTO CDC_GZSS.CDC_TB_PG_JG_XQ (XQ_ID, PG_ID, DA_ID, JYXM, XSS, KSJLS, DEL_FLAG, CREATE_BY, CREATE_TIME,
+                                              UPDATE_BY, UPDATE_TIME, REMARKS)
+        VALUES (#{xqId}, #{pgId}, #{daId}, #{jyxm}, #{xss}, #{ksjls}, #{delFlag}, #{createBy}, #{createTime},
+                #{updateBy}, #{updateTime}, #{remarks})
+    </insert>
+
+</mapper>

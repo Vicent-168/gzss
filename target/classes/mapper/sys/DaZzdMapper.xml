@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.sys.mapper.DaZzdMapper">
+    <insert id="insertDaZzd" parameterType="com.shdata.health.gzss.sys.entity.DaZzd">
+        INSERT INTO CDC_GZSS.CDC_TB_DA_ZZD
+        (ID, DA_ID, ZCYLJG, ZZZT, ZZLB, ZRYLJG, ZZRQ, ZZYSID, ZZYS, ZCYY, CREATE_BY, CREATE_TIME, UPDATE_BY,
+         UPDATE_TIME, REMARKS)
+        VALUES (#{id}, #{daId}, #{zcyljg}, #{zzzt}, #{zzlb}, #{zryljg}, #{zzrq}, #{zzysid}, #{zzys}, #{zcyy},
+                #{createBy}, #{createTime}, #{updateBy}, #{updateTime}, #{remarks})
+    </insert>
+
+    <select id="findByPage" resultType="com.shdata.health.gzss.sys.vo.DaZzdVo"
+            parameterType="com.shdata.health.gzss.sys.vo.DaZzdSearchVo">
+        SELECT * FROM CDC_TB_DA_ZZD t WHERE t.del_flag='0'
+        <if test="needOrder">ORDER BY t.update_time DESC</if>
+    </select>
+    <select id="findZzdDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.resp.DaZzdDto" parameterType="com.shdata.health.gzss.sys.vo.DaZzdSearchVo">
+        SELECT
+        zzd.ID as id,
+        zzd.DA_ID as daId,
+        jbqk.XM as xm,
+        jbqk.SFZH as sfzh,
+        jbqk.XB as xb,
+        jbqk.LXFS as lxfs,
+        zzd.ZZZT as zzzt,
+        zzd.ZZLB as zzlb,
+        zzd.ZRYLJG as zryljg,
+        zzd.ZZRQ as zzrq,
+        zzd.ZCYY as zcyy
+        FROM
+        CDC_GZSS.CDC_TB_DA_ZZD zzd
+        JOIN CDC_GZSS.CDC_TB_DA_JBQK jbqk ON zzd.DA_ID = jbqk.DA_ID
+        WHERE
+        jbqk.DEL_FLAG ='0' and zzd.DEL_FLAG='0'
+        <if test="keyword !=null and keyword !=''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="beginDate != null">
+            AND zzd.ZZRQ &gt;= #{beginDate}
+        </if>
+        <if test="endDate != null">
+            AND zzd.ZZRQ &lt;= #{endDate}
+        </if>
+        <if test="glyljg != null and glyljg != ''">
+            AND zzd.ZCYLJG = #{glyljg}
+        </if>
+        <if test="zzysid != null and zzysid != ''">
+            AND zzd.ZZYSID = #{zzysid}
+        </if>
+        <if test="zzztlist != null and zzztlist.size() &gt; 0">
+            AND zzd.ZZZT IN
+            <foreach item="item" index="index" collection="zzztlist" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="glztlist != null and glztlist.size() &gt; 0">
+            AND jbqk.DAZT IN
+            <foreach item="item" index="index" collection="glztlist" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="zzlblist != null and zzlblist.size() &gt; 0">
+            AND zzd.ZZLB IN
+            <foreach item="item" index="index" collection="zzlblist" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="zcyy != null and zcyy != ''">
+            AND zzd.ZCYY LIKE  #{zcyy}
+        </if>
+        ORDER BY zzd.ZZRQ DESC
+    </select>
+    <select id="findZzdByDaId" resultType="com.shdata.health.gzss.sys.vo.DaZzdVo">
+        SELECT
+            zzd.ID as id,
+            zzd.DA_ID as daId,
+            zzd.ZCYLJG as zcyljg,
+            zzd.ZZZT as zzzt,
+            zzd.ZZLB as zzlb,
+            zzd.ZRYLJG zryljg,
+            zzd.ZZRQ as zzrq,
+            zzd.ZZYSID as zzysid,
+            zzd.ZZYS as zzys,
+            zzd.ZCYY as zcyy
+        FROM
+            CDC_GZSS.CDC_TB_DA_ZZD zzd
+        WHERE
+            zzd.DEL_FLAG = '0'
+          AND zzd.DA_ID = #{daId}
+    </select>
+    <select id="findZzdByDaIdandZzrq" resultType="com.shdata.health.gzss.sys.vo.DaZzdVo"
+            parameterType="com.shdata.health.gzss.sys.vo.ZzdSearchVo">
+        SELECT
+        zzd.ID as id,
+        zzd.DA_ID as daId,
+        zzd.ZCYLJG as zcyljg,
+        zzd.ZZZT as zzzt,
+        zzd.ZZLB as zzlb,
+        zzd.ZRYLJG zryljg,
+        zzd.ZZRQ as zzrq,
+        zzd.ZZYSID as zzysid,
+        zzd.ZZYS as zzys,
+        zzd.ZCYY as zcyy
+        FROM
+        CDC_GZSS.CDC_TB_DA_ZZD zzd
+        WHERE
+        zzd.DEL_FLAG = '0'
+        <if test="zzrq != null ">
+            AND zzd.ZZRQ = #{zzrq}
+        </if>
+        <if test="daId != null and daId != ''">
+            AND zzd.DA_ID = #{daId}
+        </if>
+    </select>
+
+</mapper>

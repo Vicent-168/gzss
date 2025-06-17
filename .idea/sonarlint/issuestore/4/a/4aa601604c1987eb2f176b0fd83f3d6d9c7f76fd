@@ -1,0 +1,16 @@
+
+…
+java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8…‡°Ï•2J$de250ed5-e93e-4d12-82bd-b12dce80342f
+…
+java:S6813,"BRemove this field injection and use constructor injection instead.(êæÄŞ8…‡°Ï•2J$f6ccce47-cba2-462b-bc17-45af5ed78827
+y
+java:S1144–"0Remove this unused private "getDictName" method.(Œ”Íêıÿÿÿÿ8…‡°Ï•2J$e7ebed97-28ec-4dfa-922b-351f639e8c62
+•
+java:S37766"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(«îË¶8´¼ÚÌ–2J$786e8e21-9853-4ddc-a1db-4d965a54527f
+—
+java:S3252J"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(’Â¾¯ûÿÿÿÿ8·¼ÚÌ–2J$f8175082-1a71-495b-a58c-eabdec0a04cb
+’
+java:S3252K"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(¤Ì×¾8·¼ÚÌ–2J$294d23bf-922a-4763-973f-20ffe7320e4b
+’
+java:S3252L"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ÓÀ—æ8Œ´ÜÌ–2J$5ef53a38-2023-48d0-a78e-adc6fdedc9ea
+	java:S125"<This block of commented-out lines of code should be removed.(Õºˆæ8ü¤§Å–2J$25e5263e-4016-43ca-abbd-0c3c573f2cf2

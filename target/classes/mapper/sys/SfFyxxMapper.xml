@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.sys.mapper.SfFyxxMapper">
+
+    <select id="findByPage" resultType="com.shdata.health.gzss.sys.vo.SfFyxxVo"
+            parameterType="com.shdata.health.gzss.sys.vo.SfFyxxSearchVo">
+        SELECT * FROM CDC_GZSS.CDC_TB_SF_FYXX t WHERE t.del_flag='0'
+        <if test="needOrder">ORDER BY t.update_time DESC</if>
+    </select>
+    <select id="findSffsDataByDaId" resultType="com.shdata.health.gzss.sys.vo.SfFyxxVo" parameterType="com.shdata.health.gzss.sys.vo.SfFysSearchVo">
+        select sffyxx.ID     as id,
+               sffyxx.DA_ID  as daId,
+               sffyxx.CFRQ   as cfrq,
+               sffyxx.CFYLJG as cfyljg,
+               sffyxx.YWFL   as ywfl,
+               sffyxx.YWBLFY as ywblfy,
+               sffyxx.YWDM   as ywdm,
+               sffyxx.YPMC   as ypmc,
+               sffyxx.JX     as jx,
+               sffyxx.GG     as gg,
+               sffyxx.DW     as dw,
+               sffyxx.SFFS     as sffs,
+               sffyxx.SFYSID   as sfysid,
+               sffyxx.GLJG    as gljg
+        from CDC_GZSS.CDC_TB_SF_FYXX sffyxx
+        where sffyxx.DEL_FLAG = '0'
+        <if test="daId != null and daId != ''">
+            and sffyxx.DA_ID=#{daId}
+        </if>
+        <if test="cfyljg != null and cfyljg != ''">
+            and sffyxx.cfyljg=#{cfyljg}
+        </if>
+    </select>
+    <select id="findSfFyDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.resp.SfFyDto" parameterType="com.shdata.health.gzss.sys.vo.SfFysSearchVo">
+        WITH SFFYXX_PIVOT AS (
+        SELECT
+        DA_ID,
+        CFRQ,
+        MAX(CFYLJG) AS CFYLJG,
+        MAX(SFYSID) AS SFYSID,
+        MAX(YWBLFY) AS YWBLFY
+        FROM
+        CDC_GZSS.CDC_TB_SF_FYXX
+        WHERE
+        DEL_FLAG = '0'
+        GROUP BY
+        DA_ID, CFRQ
+        )
+        SELECT
+        pivot_data.DA_ID as daId,
+        jbqk.XM as xm,
+        jbqk.XB as xb,
+        jbqk.SFZH as sfzh,
+        jbqk.LXFS as lxfs,
+        pivot_data.CFRQ as cfrq,
+        pivot_data.YWBLFY as ywblfy,
+        pivot_data.SFYSID as sfysid,
+        pivot_data.CFYLJG as cfyljg
+        FROM
+        SFFYXX_PIVOT pivot_data
+        JOIN
+        CDC_GZSS.CDC_TB_DA_JBQK jbqk ON pivot_data.DA_ID = jbqk.DA_ID
+        WHERE
+        jbqk.DEL_FLAG = '0'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="beginDate != null and endDate != null">
+            AND pivot_data.CFRQ BETWEEN (#{beginDate}) AND (#{endDate} )
+        </if>
+        <if test="jcyljg != null and jcyljg != ''">
+            AND pivot_data.CFYLJG = #{jcyljg}
+        </if>
+        <if test="ywblfy != null and ywblfy !=''">
+            AND pivot_data.YWBLFY = #{ywblfy}
+        </if>
+        ORDER BY pivot_data.CFRQ desc
+    </select>
+    <select id="fetchHistoryFyxxDataByDaId" resultType="com.shdata.health.gzss.sys.vo.SfFyxxVo">
+        SELECT t.ID     as id,
+               t.DA_ID  as daId,
+               t.CFRQ   as cfrq,
+               t.CFYLJG as cfyljg,
+               t.YWFL   as ywfl,
+               t.YWBLFY as ywblfy,
+               t.YWDM   as ywdm,
+               t.YPMC   as ypmc,
+               t.JX     as jx,
+               t.GG     as gg,
+               t.DW     as dw,
+               t.SFFS     as sffs,
+               t.SFYSID   as sfysid,
+               t.GLJG    as gljg
+        FROM CDC_GZSS.CDC_TB_SF_FYXX t
+        WHERE t.DEL_FLAG = '0'
+          AND t.DA_ID = #{daId}
+          AND t.CFRQ = (
+            SELECT min(t2.CFRQ)
+            FROM CDC_GZSS.CDC_TB_SF_FYXX t2
+            WHERE t2.DEL_FLAG = '0'
+              AND t2.DA_ID = #{daId}
+        )
+        ORDER BY t.ID
+    </select>
+    <select id="fetchLatestFyxxDataByDaId" resultType="com.shdata.health.gzss.sys.vo.SfFyxxVo">
+        SELECT t.ID     as id,
+               t.DA_ID  as daId,
+               t.CFRQ   as cfrq,
+               t.CFYLJG as cfyljg,
+               t.YWFL   as ywfl,
+               t.YWBLFY as ywblfy,
+               t.YWDM   as ywdm,
+               t.YPMC   as ypmc,
+               t.JX     as jx,
+               t.GG     as gg,
+               t.DW     as dw,
+               t.SFFS     as sffs,
+               t.SFYSID   as sfysid,
+               t.SFYS   as sfys,
+               t.GLJG    as gljg
+        FROM CDC_GZSS.CDC_TB_SF_FYXX t
+        WHERE t.DEL_FLAG = '0'
+          AND t.DA_ID = #{daId}
+          AND t.CFRQ = (
+            SELECT max(t2.CFRQ)
+            FROM CDC_GZSS.CDC_TB_SF_FYXX t2
+            WHERE t2.DA_ID = #{daId}  -- 关联 DA_ID
+              AND t2.DEL_FLAG = '0'
+        )
+        Order by t.CFRQ desc
+    </select>
+    <select id="fetchFyxxDataByDaIdandDate" resultType="com.shdata.health.gzss.sys.vo.SfFyxxVo" parameterType="com.shdata.health.gzss.sys.vo.SfFyxxylSearchVo">
+        SELECT t.ID     as id,
+               t.DA_ID  as daId,
+               t.CFRQ   as cfrq,
+               t.CFYLJG as cfyljg,
+               t.YWFL   as ywfl,
+               t.YWBLFY as ywblfy,
+               t.YWDM   as ywdm,
+               t.YPMC   as ypmc,
+               t.JX     as jx,
+               t.GG     as gg,
+               t.DW     as dw,
+               t.SFFS     as sffs,
+               t.SFYSID   as sfysid,
+               t.GLJG    as gljg
+        FROM CDC_GZSS.CDC_TB_SF_FYXX t
+        WHERE t.DEL_FLAG = '0'
+          AND t.DA_ID = #{daId}
+          AND t.CFRQ = #{cfrq}
+    </select>
+</mapper>

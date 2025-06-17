@@ -1,0 +1,100 @@
+server:
+  port: 7206
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
+    # Tomcat启动初始化的线程数，默认值25
+    threads:
+      min-spare: 30
+      max: 800
+  error:
+    include-message: always  #spring 2.3版本后对message进行了控制，默认返回是空需要显式指定always
+    include-exception: true
+    include-stacktrace: always
+    include-binding-errors: always
+
+
+# Spring配置
+spring:
+  application:
+    name: health-gzss
+  profiles:
+    active: de
+  cache:
+    type: redis
+    redis:
+      key-prefix: 'gzss'
+
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
+  datasource:
+    druid:
+      initial-size: 10
+      min-idle: 10
+      maxActive: 200
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      connectionErrorRetryAttempts: 3
+      breakAfterAcquireFailure: true
+      timeBetweenConnectErrorMillis: 300000
+      asyncInit: true
+      remove-abandoned: true
+      remove-abandoned-timeout: 1800
+      transaction-query-timeout: 6000
+      filters: stat,wall,log4j2
+      connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+      web-stat-filter:
+        enabled: true
+        url-pattern: "/*"
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        url-pattern: "/druid/*"
+        allow:
+        deny:
+        reset-enable: false
+        login-username: admin
+        login-password: admin
+
+logging:
+  file:
+    path: /HC_logs/gzss/
+  level:
+    root: ERROR
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: logfile
+
+mybatis-plus:
+  configuration:
+    jdbc-type-for-null: 'null'
+feign:
+  hystrix:
+    enabled: true
+  circuitbreaker:
+    enabled: true
+  client:
+    config:
+      deufalt:
+        loggerLevel: FULL
+      zacian2:
+        #connectTimeout和readTimeout这两个得一起配置才会生效
+        connectTimeout: 5000
+        readTimeout: 60000
+
+  httpclient:
+    enabled: true # 支持HttpClient的开关
+    max-connections: 200 # 最大连接数
+    max-connections-per-route: 50 # 单个路径的最大连接数

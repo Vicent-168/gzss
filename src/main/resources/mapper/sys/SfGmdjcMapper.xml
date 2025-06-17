@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.sys.mapper.SfGmdjcMapper">
+    <resultMap id="PgjgGmdDtoResultMap" type="com.shdata.health.gzss.sys.vo.resp.PgjgGmdDto">
+        <result column="ID" property="id"/>
+        <result column="DA_ID" property="daId"/>
+        <result column="DXA_JCRQ" property="dxaJcrq"/>
+        <result column="TZ_L1" property="tzL1"/>
+        <result column="TZ_L2" property="tzL2"/>
+        <result column="TZ_L3" property="tzL3"/>
+        <result column="TZ_L4" property="tzL4"/>
+        <result column="TZ_L1_L4" property="tzL1L4"/>
+        <result column="TZ_QH" property="tzQh"/>
+        <result column="TZ_GGG" property="tzGgj"/>
+    </resultMap>
+
+    <select id="findByPage" resultType="com.shdata.health.gzss.sys.vo.SfGmdjcVo"
+            parameterType="com.shdata.health.gzss.sys.vo.SfGmdjcSearchVo">
+        SELECT * FROM CDC_GZSS.CDC_TB_SF_GMDJC t
+        join
+        CDC_GZSS.CDC_TB_DA_JBQK d WHERE
+        t.DEL_FLAG='0'
+        <if test="daId != null and daId != ''">
+            t.DA_ID = #{daId}
+        </if>
+        <if test="jcyljg != null and jcyljg != ''">
+            AND t.JCYLJG=#{jcyljg}
+        </if>
+        <if test="needOrder">ORDER BY t.update_time DESC</if>
+    </select>
+
+    <select id="selectByDaIdWithPagination" resultType="com.shdata.health.gzss.sys.vo.SfGmdjcVo"
+            parameterType="com.shdata.health.gzss.sys.vo.SfGmdjcSearchVo">
+        SELECT t.ID AS id,
+        t.DA_ID AS daId,
+        t.DXA_JCRQ AS dxaJcrq,
+        t.TZ_L1 AS tzL1,
+        t.TZ_L2 AS tzL2,
+        t.TZ_L3 AS tzL3,
+        t.TZ_L4 AS tzL4,
+        t.TZ_L1_L4 AS tzL1L4,
+        t.TZ_QH AS tzQh,
+        t.TZ_GGJ AS tzGgj,
+        t.JCYLJG AS jcyljg
+        FROM CDC_GZSS.CDC_TB_SF_GMDJC t
+        WHERE t.DEL_FLAG = '0'
+        <if test="daId != null and daId != ''">
+            AND t.DA_ID = #{daId}
+        </if>
+        ORDER BY t.DXA_JCRQ DESC
+    </select>
+    <select id="countByDaId" resultType="java.lang.Long">
+        SELECT COUNT(*)
+        FROM CDC_GZSS.CDC_TB_SF_GMDJC t
+        WHERE t.DEL_FLAG = '0'
+          and t.DA_ID = #{daId}
+    </select>
+
+
+    <select id="getPgjgGmdDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.resp.PgjgGmdDto"
+            parameterType="com.shdata.health.gzss.sys.vo.PgjgGmdSearchVo">
+        SELECT
+        t.ID AS id,
+        t.DA_ID AS daId,
+        t.DXA_JCRQ AS dxaJcrq,
+        t.TZ_L1 AS tzL1,
+        t.TZ_L2 AS tzL2,
+        t.TZ_L3 AS tzL3,
+        t.TZ_L4 AS tzL4,
+        t.TZ_L1_L4 AS tzL1L4,
+        t.TZ_QH AS tzQh,
+        t.TZ_GGJ AS tzGgj
+        FROM CDC_GZSS.CDC_TB_SF_GMDJC t
+        WHERE t.DEL_FLAG='0'
+        <if test="vo.daId !=null and vo.daId != ''">
+            AND t.DA_ID = #{vo.daId}
+        </if>
+        <if test="vo.gmdJcks != null">
+            AND t.DXA_JCRQ &gt;= #{vo.gmdJcks}
+        </if>
+        <if test="vo.gmdJcjs != null">
+            AND t.DXA_JCRQ &lt;= #{vo.gmdJcjs}
+        </if>
+        ORDER BY t.DXA_JCRQ ASC
+    </select>
+
+
+    <select id="searchSfGmdjc1" resultType="com.shdata.health.gzss.sys.vo.SfGmdJcYlo"
+            parameterType="com.shdata.health.gzss.sys.vo.SfGmdjcSearchVo">
+        SELECT
+        a.ID AS id,
+        a.DA_ID AS daId,
+        a.DXA_JCRQ AS dxaJcrq,
+        a.JCYLJG AS jcyljg,
+        a.GMD_L1 AS gmdL1,
+        a.GMD_L2 AS gmdL2,
+        a.GMD_L3 AS gmdL3,
+        a.GMD_L4 AS gmdL4,
+        a.GMD_L1_L4 AS gmdL1L4,
+        a.GMD_QH AS gmdQh,
+        a.GMD_GGJ AS gmdGgj,
+        a.TZ_L1 AS tzL1,
+        a.TZ_L2 AS tzL2,
+        a.TZ_L3 AS tzL3,
+        a.TZ_L4 AS tzL4,
+        a.TZ_L1_L4 AS tzL1L4,
+        a.TZ_QH AS tzQh,
+        a.TZ_GGJ AS tzGgj,
+        a.SFFS AS sffs,
+        a.SFYSID AS sfysid,
+        a.SFYS AS sfys,
+        a.GLJG AS gljg,
+        b.SFZH AS sfzh,
+        b.XM AS xm,
+        b.YBKH AS ybkh,
+        b.XB AS xb,
+        b.CSRQ AS csrq,
+        b.LXFS AS lxfs,
+        b.JZDZ_SHENG AS jzdzSheng,
+        b.JZDZ_SHI AS jzdzShi,
+        b.JZDZ_QX AS jzdzQx,
+        b.JZDZ_JD AS jzdzJd,
+        b.JZDZ_JWCN AS jzdzJwcn,
+        b.JZDZ_XXDZ AS jzdzXxdz
+        FROM CDC_GZSS.CDC_TB_SF_GMDJC a
+        JOIN CDC_GZSS.CDC_TB_DA_JBQK b ON a.DA_ID = b.DA_ID
+        WHERE a.DEL_FLAG ='0'
+        AND b.DEL_FLAG ='0'
+        <if test="search.keyword != null and search.keyword != ''">
+            AND (
+            b.SFZH LIKE #{search.keyword}
+            OR b.YBKH LIKE #{search.keyword}
+            OR b.XM LIKE #{search.keyword}
+            )
+        </if>
+        <if test="search.jcyljg != null and search.jcyljg != ''">
+            AND a.JCYLJG = #{search.jcyljg}
+        </if>
+        <if test="search.beginDate != null  ">
+            AND a.DXA_JCRQ &gt;= #{search.beginDate}
+        </if>
+        <if test="search.endDate != null  ">
+            AND a.DXA_JCRQ &lt;= #{search.endDate}
+        </if>
+        <if test="sqlList != null and !sqlList.isEmpty()">
+            <foreach collection="sqlList" item="condition" open="AND" separator=" AND ">
+                ${condition} <!-- 确保 ${condition} 的内容是合法的 SQL 条件 -->
+            </foreach>
+        </if>
+        ORDER BY a.DXA_JCRQ DESC
+    </select>
+    <select id="searchSfGmdjc2" resultType="com.shdata.health.gzss.sys.vo.SfGmdJcYlo"
+            parameterType="com.shdata.health.gzss.sys.vo.SfGmdjcSearchVo">
+        SELECT
+        a.ID AS id,
+        a.DA_ID AS daId,
+        a.DXA_JCRQ AS dxaJcrq,
+        a.JCYLJG AS jcyljg,
+        a.GMD_L1 AS gmdL1,
+        a.GMD_L2 AS gmdL2,
+        a.GMD_L3 AS gmdL3,
+        a.GMD_L4 AS gmdL4,
+        a.GMD_L1_L4 AS gmdL1L4,
+        a.GMD_QH AS gmdQh,
+        a.GMD_GGJ AS gmdGgj,
+        a.TZ_L1 AS tzL1,
+        a.TZ_L2 AS tzL2,
+        a.TZ_L3 AS tzL3,
+        a.TZ_L4 AS tzL4,
+        a.TZ_L1_L4 AS tzL1L4,
+        a.TZ_QH AS tzQh,
+        a.TZ_GGJ AS tzGgj,
+        a.SFFS AS sffs,
+        a.SFYSID AS sfysid,
+        a.SFYS AS sfys,
+        a.GLJG AS gljg,
+        b.SFZH AS sfzh,
+        b.XM AS xm,
+        b.YBKH AS ybkh,
+        b.XB AS xb,
+        b.CSRQ AS csrq,
+        b.LXFS AS lxfs,
+        b.JZDZ_SHENG AS jzdzSheng,
+        b.JZDZ_SHI AS jzdzShi,
+        b.JZDZ_QX AS jzdzQx,
+        b.JZDZ_JD AS jzdzJd,
+        b.JZDZ_JWCN AS jzdzJwcn,
+        b.JZDZ_XXDZ AS jzdzXxdz
+        FROM CDC_GZSS.CDC_TB_SF_GMDJC a
+        JOIN CDC_GZSS.CDC_TB_DA_JBQK b ON a.DA_ID = b.DA_ID
+        WHERE a.DEL_FLAG ='0'
+        and b.DEL_FLAG ='0'
+        <if test="search.keyword != null and search.keyword != ''">
+            AND (
+            b.SFZH LIKE #{search.keyword}
+            OR b.YBKH LIKE #{search.keyword}
+            OR b.XM LIKE #{search.keyword}
+            )
+        </if>
+        <if test="search.jcyljg != null and search.jcyljg != ''">
+            AND a.JCYLJG = #{search.jcyljg}
+        </if>
+        <if test="search.beginDate != null  ">
+            AND a.DXA_JCRQ &gt;= #{search.beginDate}
+        </if>
+        <if test="search.endDate != null  ">
+            AND a.DXA_JCRQ &lt;= #{search.endDate}
+        </if>
+        <if test="sqlList != null and !sqlList.isEmpty()">
+            <foreach collection="sqlList" item="code" open="AND" separator=" OR ">
+                ${code}
+            </foreach>
+        </if>
+        ORDER BY a.DXA_JCRQ DESC
+    </select>
+    <select id="searchSfGmdjc3" resultType="com.shdata.health.gzss.sys.vo.SfGmdJcYlo"
+            parameterType="com.shdata.health.gzss.sys.vo.SfGmdjcSearchVo">
+        SELECT
+        a.ID AS id,
+        a.DA_ID AS daId,
+        a.DXA_JCRQ AS dxaJcrq,
+        a.JCYLJG AS jcyljg,
+        a.GMD_L1 AS gmdL1,
+        a.GMD_L2 AS gmdL2,
+        a.GMD_L3 AS gmdL3,
+        a.GMD_L4 AS gmdL4,
+        a.GMD_L1_L4 AS gmdL1L4,
+        a.GMD_QH AS gmdQh,
+        a.GMD_GGJ AS gmdGgj,
+        a.TZ_L1 AS tzL1,
+        a.TZ_L2 AS tzL2,
+        a.TZ_L3 AS tzL3,
+        a.TZ_L4 AS tzL4,
+        a.TZ_L1_L4 AS tzL1L4,
+        a.TZ_QH AS tzQh,
+        a.TZ_GGJ AS tzGgj,
+        a.SFFS AS sffs,
+        a.SFYSID AS sfysid,
+        a.SFYS AS sfys,
+        a.GLJG AS gljg,
+        b.SFZH AS sfzh,
+        b.XM AS xm,
+        b.YBKH AS ybkh,
+        b.XB AS xb,
+        b.CSRQ AS csrq,
+        b.LXFS AS lxfs,
+        b.JZDZ_SHENG AS jzdzSheng,
+        b.JZDZ_SHI AS jzdzShi,
+        b.JZDZ_QX AS jzdzQx,
+        b.JZDZ_JD AS jzdzJd,
+        b.JZDZ_JWCN AS jzdzJwcn,
+        b.JZDZ_XXDZ AS jzdzXxdz
+        FROM CDC_GZSS.CDC_TB_SF_GMDJC a
+        JOIN CDC_GZSS.CDC_TB_DA_JBQK b ON a.DA_ID = b.DA_ID
+        WHERE a.DEL_FLAG ='0'
+        and b.DEL_FLAG ='0'
+        <if test="search.keyword != null and search.keyword != ''">
+            AND (
+            b.SFZH LIKE #{search.keyword}
+            OR b.YBKH LIKE #{search.keyword}
+            OR b.XM LIKE #{search.keyword}
+            )
+        </if>
+        <if test="search.jcyljg != null and search.jcyljg != ''">
+            AND a.JCYLJG = #{search.jcyljg}
+        </if>
+        <if test="search.beginDate != null  ">
+            AND a.DXA_JCRQ &gt;= #{search.beginDate}
+        </if>
+        <if test="search.endDate != null  ">
+            AND a.DXA_JCRQ &lt;= #{search.endDate}
+        </if>
+        ORDER BY a.DXA_JCRQ DESC
+    </select>
+    <!-- 评估结果-详情骨密度检查结果分页查询 -->
+
+
+    <!--    <select id="findPgjgXqGmdDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.resp.PgjgXqGmdDto"-->
+    <!--            parameterType="com.shdata.health.gzss.sys.vo.PgjgXqGmdVo">-->
+    <!--        SELECT-->
+    <!--        jg.PG_ID AS pgId,-->
+    <!--        jg.DA_ID AS daId,-->
+    <!--        jg.GMDJCKS AS gmdJcks,-->
+    <!--        jg.GMDJCJS AS gmdJcjs,-->
+    <!--        NVL(jg.GMD_XSS, 5) AS gmdXss,-->
+    <!--        NVL(jg.GMD_KSJLS, 1) AS gmdKsjls,-->
+    <!--        jc.GMD_L1 AS gmdL1,-->
+    <!--        jc.GMD_L2 AS gmdL2,-->
+    <!--        jc.GMD_L3 AS gmdL3,-->
+    <!--        jc.GMD_L4 AS gmdL4,-->
+    <!--        jc.GMD_L1_L4 AS gmdL1L4,-->
+    <!--        jc.GMD_QH AS gmdQh,-->
+    <!--        jc.GMD_GGJ AS gmdGgj,-->
+    <!--        FROM-->
+    <!--        CDC_GZSS.CDC_TB_PG_JG jg-->
+    <!--        LEFT JOIN CDC_GZSS.CDC_TB_SF_GMDJC jc ON jg.DA_ID = jc.DA_ID-->
+    <!--        WHERE-->
+    <!--        jg.DEL_FLAG = '0'-->
+    <!--        AND jc.DEL_FLAG = '0'-->
+    <!--        <if test="vo.daId != null and vo.daId != ''">-->
+    <!--            AND jg.DA_ID = #{vo.daId}-->
+    <!--        </if>-->
+    <!--    </select>-->
+    <!-- 获取分页信息 -->
+    <select id="getPaginationInfoByDaId" resultType="com.shdata.health.gzss.sys.vo.PgjgXqGmdVo">
+        SELECT NVL(GMD_XSS, 5)   AS gmdXss,
+               NVL(GMD_KSJLS, 1) AS gmdKsjls
+        FROM CDC_TB_PG_JG
+        WHERE DA_ID = #{daId}
+          AND DEL_FLAG = '0'
+    </select>
+    <select id="findSftxGmdDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.SfGmdjctxVo"
+            parameterType="com.shdata.health.gzss.sys.vo.DaSftxSearchVo">
+        SELECT
+        T.dxa_jcrq AS jcrq,
+        T.sfysid AS zrys,
+        T.da_id AS daId,
+        T.sfzh AS sfzh,
+        T.xm AS xm,
+        T.ybkh AS ybkh,
+        T.xb AS xb,
+        T.lxfs AS lxfs
+        FROM (
+        SELECT
+        A.DXA_JCRQ AS dxa_jcrq,
+        A.SFYSID AS sfysid,
+        JBQK.DA_ID AS da_id,
+        JBQK.SFZH AS sfzh,
+        JBQK.XM AS xm,
+        JBQK.YBKH AS ybkh,
+        JBQK.XB AS xb,
+        JBQK.LXFS AS lxfs,
+        ROW_NUMBER() OVER (PARTITION BY JBQK.DA_ID ORDER BY A.DXA_JCRQ DESC) AS rn
+        FROM
+        CDC_GZSS.CDC_TB_DA_JBQK JBQK
+        LEFT JOIN
+        CDC_GZSS.CDC_TB_SF_GMDJC A ON A.DA_ID = JBQK.DA_ID
+        WHERE
+        A.DEL_FLAG = '0'
+        AND JBQK.DEL_FLAG = '0'
+        AND JBQK.DAZT = '1'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            JBQK.SFZH LIKE #{keyword}
+            OR JBQK.YBKH LIKE #{keyword}
+            OR JBQK.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="glyljg != null and glyljg != ''">
+            AND A.GLJG = #{glyljg}
+        </if>
+        <if test="zrys != null and zrys != '' ">
+            AND A.SFYSID = #{zrys}
+        </if>
+        ) T
+        WHERE T.RN = 1
+        ORDER BY T.DXA_JCRQ DESC
+    </select>
+
+    <select id="findLatestGmdCheckDataByDaId" resultType="com.shdata.health.gzss.sys.vo.SfGmdjcVo">
+        SELECT t.ID        as id,
+               t.DA_ID     as daId,
+               t.DXA_JCRQ  as dxaJcrq,
+               t.JCYLJG    as jcyljg,
+               t.GMD_L1    as gmdL1,
+               t.GMD_L2    as gmdL2,
+               t.GMD_L3    as gmdL3,
+               t.GMD_L4    as gmdL4,
+               t.GMD_L1_L4 as gmdL1L4,
+               t.GMD_QH    as gmdQh,
+               t.GMD_GGJ   as gmdGgj,
+               t.TZ_L1     as tzL1,
+               t.TZ_L2     as tzL2,
+               t.TZ_L3     as tzL3,
+               t.TZ_L4     as tzL4,
+               t.TZ_L1_L4  as tzL1L4,
+               t.TZ_QH     as tzQh,
+               t.TZ_GGJ    as tzGgj,
+               t.SFFS      as sffs,
+               t.SFYSID    as sfysid,
+               t.SFYS      as sfys,
+               t.GLJG      as gljg
+        from CDC_GZSS.CDC_TB_SF_GMDJC t
+        where t.DEL_FLAG = '0'
+          and t.DA_ID = #{daId}
+          and t.DXA_JCRQ =
+              (SELECT MAX(t2.DXA_JCRQ) FROM CDC_GZSS.CDC_TB_SF_GMDJC t2 WHERE t2.DEL_FLAG = '0' and t2.DA_ID = #{daId})
+    </select>
+    <select id="findPgjgXqGmdDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.resp.PgjgXqGmdDto"
+            parameterType="com.shdata.health.gzss.sys.vo.PgjgXqGmdSearchVo">
+        Select
+        jc.DA_ID AS daId,
+        jc.TZ_L1 AS tzL1,
+        jc.TZ_L2 AS tzL2,
+        jc.TZ_L3 AS tzL3,
+        jc.TZ_L4 AS tzL4,
+        jc.TZ_L1_L4 AS tzL1L4,
+        jc.TZ_QH AS tzQh,
+        jc.TZ_GGJ AS tzGgj,
+        jc.DXA_JCRQ AS dxaJcrq
+        FROM CDC_GZSS.CDC_TB_SF_GMDJC jc
+        WHERE jc.DEL_FLAG = '0'
+        <if test="daId != null and daId != ''">
+            AND jc.DA_ID = #{daId}
+        </if>
+        <if test="gmdJcks != null">
+            AND jc.DXA_JCRQ &gt;= #{gmdJcks}
+        </if>
+        <if test="gmdJcjs != null">
+            AND jc.DXA_JCRQ &lt;= #{gmdJcjs}
+        </if>
+        Order By jc.DXA_JCRQ ASC
+    </select>
+    <select id="findGmdCheckDataBydaIdandZdrq" resultType="com.shdata.health.gzss.sys.vo.SfGmdjcVo" parameterType="com.shdata.health.gzss.sys.vo.GmdlySearchvo">
+        SELECT t.ID        as id,
+               t.DA_ID     as daId,
+               t.DXA_JCRQ  as dxaJcrq,
+               t.JCYLJG    as jcyljg,
+               t.GMD_L1    as gmdL1,
+               t.GMD_L2    as gmdL2,
+               t.GMD_L3    as gmdL3,
+               t.GMD_L4    as gmdL4,
+               t.GMD_L1_L4 as gmdL1L4,
+               t.GMD_QH    as gmdQh,
+               t.GMD_GGJ   as gmdGgj,
+               t.TZ_L1     as tzL1,
+               t.TZ_L2     as tzL2,
+               t.TZ_L3     as tzL3,
+               t.TZ_L4     as tzL4,
+               t.TZ_L1_L4  as tzL1L4,
+               t.TZ_QH     as tzQh,
+               t.TZ_GGJ    as tzGgj,
+               t.SFFS      as sffs,
+               t.SFYSID    as sfysid,
+               t.SFYS      as sfys,
+               t.GLJG      as gljg
+        from CDC_GZSS.CDC_TB_SF_GMDJC t
+        where t.DEL_FLAG = '0'
+          <if test="daId != null">
+              and t.DA_ID = #{daId}
+          </if>
+          <if test="dxaJcrq != null">
+              and t.DXA_JCRQ = #{dxaJcrq}
+          </if>
+    </select>
+</mapper>

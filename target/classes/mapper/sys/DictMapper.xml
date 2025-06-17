@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.common.dict.DictMapper">
+
+    <select id="findDictByType" resultType="com.shdata.health.common.dict.Dict">
+        SELECT t.CODE, t.NAME FROM CDC_GZSS.CDC_M_DIC_GENERAL t
+        WHERE t.TYPE = #{type}
+        ORDER BY t.SORT
+    </select>
+
+    <select id="findAreaByCode" resultType="com.shdata.health.common.dict.Dict">
+        SELECT t.CODE, t.NAME FROM CDC_GZSS.C_DIC_AREA t
+        WHERE t.CODE = #{areaCode}
+    </select>
+
+    <select id="findYljgByCode" resultType="com.shdata.health.common.dict.Dict">
+        SELECT t.CODE, t.NAME FROM CDC_GZSS.C_DIC_YLJG t
+        WHERE t.CODE = #{yljgCode}
+    </select>
+
+    <select id="findUserById" resultType="com.shdata.health.common.dict.Dict">
+        SELECT t.ID, t.NAME FROM CDC_GZSS.SYS_USER t
+        WHERE t.ID = #{userId}
+    </select>
+
+<!--    <select id="findDictByType" resultType="com.shdata.health.common.dict.Dict">-->
+<!--        SELECT t.code, t.name-->
+<!--        FROM T_SQZG_DICT t-->
+<!--        WHERE t.del_flag = '0'-->
+<!--          and t.type = #{type}-->
+<!--        ORDER BY t.sort-->
+<!--    </select>-->
+
+
+    <select id="findDictByTypeAndCode" resultType="java.lang.String">
+        SELECT t.CODE, t.NAME
+        FROM T_SQZG_DICT t
+        <where>
+            t.DEL_FLAG = '0'
+            AND t.TYPE = #{zdlx}
+            AND t.CODE = #{bm}
+        </where>
+        ORDER BY t.SORT
+    </select>
+    <select id="findYljgByYljgdm" resultType="com.shdata.health.gzss.common.vo.YljgdmVo">
+        select * from T_SQZG_DIC_YLJG where yljgdm = #{yljgdm}
+    </select>
+
+    <select id="findJyxmByCode" resultType="com.shdata.health.common.dict.Dict">
+        select *
+        from CDC_GZSS.CDC_M_DIC_GENERAL t
+        where t.DEL_FLAG = '0'
+          and t.TYPE = 'JYXM'
+          AND T.CODE = #{jyxmCode}
+        ORDER BY t.SORT
+    </select>
+
+    <select id="listDictByType" resultType="com.shdata.health.common.dict.Dict">
+        select *
+        from CDC_GZSS.CDC_M_DIC_GENERAL t
+        where t.DEL_FLAG = '0'
+          and t.TYPE = #{type}
+        ORDER BY t.SORT
+    </select>
+
+
+    <select id="findByTypeAndCode" resultType="com.shdata.health.common.dict.Dict">
+        select *
+        from CDC_GZSS.CDC_M_DIC_GENERAL t
+        where t.DEL_FLAG = '0'
+          and t.TYPE = #{type}
+          and t.CODE = #{code}
+        ORDER BY t.SORT
+    </select>
+
+</mapper>

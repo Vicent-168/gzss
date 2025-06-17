@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.common.mapper.DicYpMapper">
+
+    <select id="findList" resultType="com.shdata.health.gzss.common.vo.DicYpVo"
+            parameterType="com.shdata.health.gzss.common.vo.DicYpSearchVo">
+        SELECT
+        t.ID as id,
+        t.YWDM as ywdm,
+        t.DMLX as dmlx,
+        t.YN_YLJGDM as ynYljgdm,
+        t.YM_HXM as ymHxm,
+        t.YW_SPM as ywSpm,
+        t.DFL_CD as dflCd,
+        t.JX as jx,
+        t.GG as gg,
+        t.DW as dw,
+        t.YWSYTJ as ywsytj,
+        t.PINYIN as pinyin
+        FROM CDC_GZSS.CDC_M_DIC_YP t
+        WHERE t.DEL_FLAG='0'
+        <if test="needOrder">ORDER BY t.UPDATE_TIME DESC</if>
+    </select>
+    <select id="getList" resultType="com.shdata.health.gzss.common.vo.DicYpVo">
+        SELECT  t.ID as id,
+                t.YWDM as ywdm,
+                t.DMLX as dmlx,
+                t.YN_YLJGDM as ynYljgdm,
+                t.YM_HXM as ymHxm,
+                t.YW_SPM as ywSpm,
+                t.DFL_CD as dflCd,
+                t.JX as jx,
+                t.GG as gg,
+                t.DW as dw,
+                t.YWSYTJ as ywsytj,
+                t.PINYIN as pinyin
+        FROM CDC_GZSS.CDC_M_DIC_YP t
+        where t.DEL_FLAG='0'
+    </select>
+    <select id="getYpByYwdm" resultType="com.shdata.health.gzss.common.vo.DicYpVo">
+        SELECT  t.ID as id,
+                t.YWDM as ywdm,
+                t.DMLX as dmlx,
+                t.YN_YLJGDM as ynYljgdm,
+                t.YM_HXM as ymHxm,
+                t.YW_SPM as ywSpm,
+                t.DFL_CD as dflCd,
+                t.JX as jx,
+                t.GG as gg,
+                t.DW as dw,
+                t.YWSYTJ as ywsytj,
+                t.PINYIN as pinyin
+        FROM CDC_GZSS.CDC_M_DIC_YP t
+        where t.DEL_FLAG='0'
+        and t.YWDM=#{ywdm}
+    </select>
+</mapper>

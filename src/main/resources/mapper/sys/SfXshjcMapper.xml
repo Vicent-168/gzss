@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.health.gzss.sys.mapper.SfXshjcMapper">
+    <insert id="save" parameterType="java.util.List">
+        INSERT INTO CDC_GZSS.CDC_TB_SF_XSHJC (JCRQ, SFFS,SFFS,DA_ID,JYXM,JYSZ,TS,CKZ)
+        VALUES
+        <foreach collection="list" item="XshjcVo" index="index" separator=",">
+            (#{XshjcVo.testDate}, #{XshjcVo.category},#{XshjcVo.patientNumber},#{XshjcVo.testItem},
+            #{XshjcVo.result},#{XshjcVo.hint} ,#{XshjcVo.referenceRange})
+        </foreach>
+    </insert>
+
+    <select id="findByPage" resultType="com.shdata.health.gzss.sys.vo.resp.SfXshjcVo"
+            parameterType="com.shdata.health.gzss.sys.vo.SfXshjcSearchVo">
+        SELECT * FROM CDC_TB_SF_XSHJC t WHERE t.del_flag='0'
+        <if test="needOrder">ORDER BY t.update_time DESC</if>
+    </select>
+    <resultMap id="xshjcResultMap" type="com.shdata.health.gzss.sys.vo.resp.SfXshjcVo">
+        <id column="ID" property="id"/>
+        <result column="DA_ID" property="daId"/>
+        <result column="JYRQ" property="jyrq"/>
+        <result column="JYYLJG" property="jyyljg"/>
+        <result column="JYZL" property="jyzl"/>
+        <result column="TS" property="ts"/>
+        <result column="JYXM" property="jyxm"/>
+        <result column="JYSZ" property="jysz"/>
+        <result column="CKZ" property="ckz"/>
+        <result column="SFFS" property="sffs"/>
+        <result column="SFYSID" property="sfysid"/>
+        <result column="SFYS" property="sfys"/>
+        <result column="GLJG" property="gljg"/>
+        <result column="SJLY" property="sjly"/>
+    </resultMap>
+    <select id="findLatestBiochemicalCheckData" resultMap="xshjcResultMap">
+    <![CDATA[
+        SELECT *
+        FROM CDC_GZSS.CDC_TB_SF_XSHJC t
+        WHERE t.DEL_FLAG = '0'
+          AND t.DA_ID = #{daId}
+          AND t.JYRQ = (SELECT MAX(JYRQ)
+                        FROM CDC_GZSS.CDC_TB_SF_XSHJC
+                        WHERE DA_ID = #{daId}
+                          AND DEL_FLAG = '0')
+        ORDER BY t.ID
+        ]]>
+    </select>
+    <select id="findByDaid" resultType="com.shdata.health.gzss.sys.vo.resp.SfXshjcVo">
+        SELECT t.ID as id,
+        t.DA_ID as daId,
+        t.JYRQ as jyrq,
+        t.JYYLJG as jyyljg,
+        t.JYZL as jyzl,
+        t.TS as ts,
+        t.JYXM as jyxm,
+        t.JYSZ as jysz,
+        t.CKZ as ckz,
+        t.SFFS as sffs,
+        t.SFYSID as sfysid,
+        t.SFYS as sfys,
+        t.GLJG as gljg,
+        t.SJLY as sjly
+        FROM CDC_GZSS.CDC_TB_SF_XSHJC t
+        WHERE t.DEL_FLAG = '0'
+        <if test="daid != null and daid != ''">
+            AND t.DA_ID = #{daid}
+        </if>
+        ORDER BY t.ID
+    </select>
+    <select id="findByDaidSortByJyrq" resultType="com.shdata.health.gzss.sys.vo.resp.SfXshjcVo">
+    <![CDATA[
+        SELECT *
+        FROM CDC_GZSS.CDC_TB_SF_XSHJC t
+        WHERE t.DEL_FLAG = '0'
+          AND t.DA_ID = #{daid}
+        ORDER BY t.JYRQ DESC
+        ]]>
+    </select>
+    <!--    <select id="searchSfXshjc" resultType="com.shdata.health.gzss.sys.vo.resp.SfXshjcDto">-->
+    <!--        SELECT-->
+    <!--        sfx.ID as id,-->
+    <!--        sfx.DA_ID as daId,-->
+    <!--        sfx.JYRQ as jyrq,-->
+    <!--        sfx.JYYLJG as jyyljg,-->
+    <!--        sfx.JYZL as jyzl,-->
+    <!--        sfx.DW as dw,-->
+    <!--        sfx.TS as ts,-->
+    <!--        sfx.JYXM as jyxm,-->
+    <!--        sfx.JYSZ as jysz,-->
+    <!--        sfx.CKZ as ckz,-->
+    <!--        sfx.SFFS as sffs,-->
+    <!--        sfx.SFYSID as sfysid,-->
+    <!--        sfx.SFYS as sfys,-->
+    <!--        sfx.GLJG as gljg,-->
+    <!--        sfx.SJLY as sjly,-->
+    <!--        jbqk.SFZH as sfzh,-->
+    <!--        jbqk.XM as xm,-->
+    <!--        jbqk.YBKH as ybkh,-->
+    <!--        jbqk.XB as xb,-->
+    <!--        jbqk.LXFS as lxfs-->
+    <!--        FROM-->
+    <!--        CDC_GZSS.CDC_TB_DA_JBQK jbqk-->
+    <!--        JOIN-->
+    <!--        CDC_GZSS.CDC_TB_SF_XSHJC sfx ON jbqk.DA_ID = sfx.DA_ID-->
+    <!--        WHERE-->
+    <!--        sfx.DEL_FLAG = '0'-->
+    <!--        AND jbqk.DEL_FLAG = '0'-->
+    <!--        <if test="keyword != null and keyword != ''">-->
+    <!--            AND (-->
+    <!--            jbqk.XM LIKE '%' || #{keyword} || '%' OR-->
+    <!--            jbqk.SFZH LIKE '%' || #{keyword} || '%' OR-->
+    <!--            jbqk.YBKH LIKE '%' || #{keyword} || '%'-->
+    <!--            )-->
+    <!--        </if>-->
+    <!--        <if test="jcyljg != null and jcyljg != ''">-->
+    <!--            AND sfx.JYYLJG = #{jcyljg}-->
+    <!--        </if>-->
+    <!--        <if test="beginDate != null and endDate != null">-->
+    <!--            AND sfx.JYRQ BETWEEN #{beginDate} AND #{endDate}-->
+    <!--        </if>-->
+    <!--        <if test="jyxmCodes != null and !jyxmCodes.isEmpty()">-->
+    <!--            <if test="yfCode == '1'">-->
+    <!--                AND (-->
+    <!--                <foreach collection="jyxmCodes" item="code" separator=" AND ">-->
+    <!--                    sfx.JYXM = #{code}-->
+    <!--                </foreach>-->
+    <!--                )-->
+    <!--            </if>-->
+    <!--            <if test="yfCode == '2'">-->
+    <!--                AND (-->
+    <!--                <foreach collection="jcxmCodes" item="code" separator=" OR ">-->
+    <!--                    sfx.JYXM = #{code}-->
+    <!--                </foreach>-->
+    <!--                )-->
+    <!--            </if>-->
+    <!--        </if>-->
+    <!--        <if test="tsCode != null and tsCode != ''">-->
+    <!--            AND sfx.TS = #{tsCode}-->
+    <!--        </if>-->
+    <!--        Order BY sfx.JYRQ DESC-->
+    <!--    </select>-->
+    <select id="findPgXshDataByDaidAndJyrq" resultType="com.shdata.health.gzss.sys.vo.resp.PgjgXshVo"
+            parameterType="com.shdata.health.gzss.sys.vo.PgjgXshSearchVo">
+        SELECT sfx.ID as id,
+        sfx.JYRQ as jyrq,
+        sfx.JYXM as jyxm,
+        sfx.JYSZ as jysz
+        FROM CDC_GZSS.CDC_TB_SF_XSHJC sfx
+        WHERE sfx.DEL_FLAG = '0'
+        <if test="daId != null and daId != ''">
+            AND sfx.DA_ID = #{daId}
+        </if>
+        <if test="beginDate != null and endDate != null">
+            AND sfx.JYRQ BETWEEN #{beginDate} AND #{endDate}
+        </if>
+        <if test="jyxmCode != null and jyxmCode != ''">
+            AND sfx.JYXM = #{jyxmCode}
+        </if>
+        ORDER BY sfx.JYRQ
+    </select>
+    <select id="countPgXshDataByDaidAndJyrq" resultType="java.lang.Long">
+        SELECT
+        COUNT(1)
+        FROM
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx
+        WHERE
+        sfx.DEL_FLAG = '0'
+        <if test="daId != null and daId != ''">
+            AND sfx.DA_ID = #{daId}
+        </if>
+        <if test="beginDate != null and endDate != null">
+            AND sfx.JYRQ BETWEEN #{beginDate} AND #{endDate}
+        </if>
+        <if test="jyxmCode != null and jyxmCode != ''">
+            AND sfx.JYXM = #{jyxmCode}
+        </if>
+    </select>
+    <select id="findLatestByDaId" resultType="com.shdata.health.gzss.sys.vo.resp.SfXshjcVo">
+        SELECT *
+        FROM CDC_GZSS.CDC_TB_SF_XSHJC sfx
+        WHERE sfx.DA_ID = #{daid}
+          AND sfx.JYRQ = (SELECT MAX(sfx2.JYRQ)
+                          FROM CDC_GZSS.CDC_TB_SF_XSHJC sfx2
+                          WHERE sfx2.DA_ID = #{daid})
+        ORDER BY sfx.JYRQ DESC, sfx.JYYLJG
+    </select>
+    <!--<select id="findSftxXshDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.SfXshjctxVo"
+            parameterType="com.shdata.health.gzss.sys.vo.DaSftxSearchVo">
+        SELECT
+        sfx.JYRQ as jcrq,
+        sfx.SFYSID as zrys,
+        sfx.GLJG as gljg,
+        jbqk.DA_ID as daId,
+        jbqk.SFZH as sfzh,
+        jbqk.XM as xm,
+        jbqk.YBKH as ybkh,
+        jbqk.XB as xb,
+        jbqk.LXFS as lxfs
+        FROM
+        CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        Left JOIN
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx ON jbqk.DA_ID = sfx.DA_ID
+        WHERE
+        sfx.DEL_FLAG = '0'
+        AND jbqk.DEL_FLAG = '0'
+        AND jbqk.DAZT = '1'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="glyljg != null and glyljg != ''">
+            AND sfx.GLJG = #{glyljg}
+        </if>
+        Order By sfx.JYRQ DESC
+    </select>-->
+    <select id="findSftxXshDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.SfXshjctxVo"
+            parameterType="com.shdata.health.gzss.sys.vo.DaSftxSearchVo">
+        SELECT
+        t.jyrq AS jcrq,
+        t.sfysid AS zrys,
+        t.gljg AS gljg,
+        t.da_id AS daId,
+        t.sfzh AS sfzh,
+        t.xm AS xm,
+        t.ybkh AS ybkh,
+        t.xb AS xb,
+        t.lxfs AS lxfs
+        FROM (
+        SELECT
+        sfx.JYRQ AS jyrq,
+        sfx.SFYSID AS sfysid,
+        sfx.GLJG AS gljg,
+        jbqk.DA_ID AS da_id,
+        jbqk.SFZH AS sfzh,
+        jbqk.XM AS xm,
+        jbqk.YBKH AS ybkh,
+        jbqk.XB AS xb,
+        jbqk.LXFS AS lxfs,
+        ROW_NUMBER() OVER (PARTITION BY jbqk.DA_ID ORDER BY sfx.JYRQ DESC) AS rn
+        FROM
+        CDC_GZSS.CDC_TB_DA_JBQK JBQK
+        LEFT JOIN
+        CDC_GZSS.CDC_TB_SF_XSHJC SFX ON JBQK.DA_ID = SFX.DA_ID
+        WHERE
+        SFX.DEL_FLAG = '0'
+        AND JBQK.DEL_FLAG = '0'
+        AND JBQK.DAZT = '1'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            JBQK.SFZH LIKE #{keyword}
+            OR JBQK.YBKH LIKE #{keyword}
+            OR JBQK.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="glyljg != null and glyljg != ''">
+            AND SFX.GLJG = #{glyljg}
+        </if>
+        ) t
+        WHERE t.rn = 1
+        ORDER BY t.jyrq DESC
+    </select>
+
+    <select id="findPgXshXqDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.resp.PgjgXshVo"
+            parameterType="com.shdata.health.gzss.sys.vo.PgjgXshSearchVo">
+        select sfx.ID as id,
+        sfx.JYRQ as jyrq,
+        sfx.DA_ID as daId,
+        sfx.JYSZ as jysz,
+        sfx.JYXM as jyxm
+        from CDC_GZSS.CDC_TB_SF_XSHJC sfx
+        where sfx.DEL_FLAG = '0'
+        <if test="daId != null and daId != ''">
+            and sfx.DA_ID = #{daId}
+        </if>
+        <if test="jyxmCode != null and jyxmCode != ''">
+            and sfx.JYXM = #{jyxmCode}
+        </if>
+        <if test="beginDate != null and endDate != null">
+            AND sfx.JYRQ BETWEEN #{beginDate} AND #{endDate}
+        </if>>
+        ORDER BY sfx.JYRQ ASC
+    </select>
+    <select id="findPgXshXjDataByCriterias" resultType="com.shdata.health.gzss.sys.vo.resp.PgjgXshVo"
+            parameterType="com.shdata.health.gzss.sys.vo.PgjgXshSearchVo">
+        SELECT sfx.ID as id,
+        sfx.DA_ID as daId,
+        sfx.JYRQ as jyrq,
+        sfx.JYXM as jyxm,
+        sfx.JYSZ as jysz
+        FROM CDC_GZSS.CDC_TB_SF_XSHJC sfx
+        WHERE sfx.DEL_FLAG = '0'
+        <if test="daId != null and daId != ''">
+            AND sfx.DA_ID = #{daId}
+        </if>
+        <if test="beginDate != null and endDate != null">
+            AND sfx.JYRQ BETWEEN #{beginDate} AND #{endDate}
+        </if>
+        <if test="jyxmCode != null and jyxmCode != ''">
+            AND sfx.JYXM = #{jyxmCode}
+        </if>
+    </select>
+    <select id="searchSfXshjc" resultType="com.shdata.health.gzss.sys.vo.resp.SfXshjcDto">
+        SELECT
+        sfx.ID as id,
+        sfx.DA_ID as daId,
+        sfx.JYRQ as jyrq,
+        sfx.JYYLJG as jyyljg,
+        sfx.JYZL as jyzl,
+        sfx.DW as dw,
+        sfx.TS as ts,
+        sfx.JYXM as jyxm,
+        sfx.JYSZ as jysz,
+        sfx.CKZ as ckz,
+        sfx.SFFS as sffs,
+        sfx.SFYSID as sfysid,
+        sfx.SFYS as sfys,
+        sfx.GLJG as gljg,
+        sfx.SJLY as sjly,
+        jbqk.SFZH as sfzh,
+        jbqk.XM as xm,
+        jbqk.YBKH as ybkh,
+        jbqk.XB as xb,
+        jbqk.LXFS as lxfs
+        FROM
+        CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        left join
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx ON jbqk.DA_ID = sfx.DA_ID
+        where sfx.DEL_FLAG = '0' and jbqk.DEL_FLAG = '0' and sfx.jyxm
+        left join
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx1 ON jbqk.DA_ID = sfx1.DA_ID
+        left join
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx2 ON jbqk.DA_ID = sfx2.DA_ID
+        left join
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx3 ON jbqk.DA_ID = sfx3.DA_ID
+        left join
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx4 ON jbqk.DA_ID = sfx4.DA_ID
+        left join
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx5 ON jbqk.DA_ID = sfx5.DA_ID
+        left join
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx6 ON jbqk.DA_ID = sfx6.DA_ID
+        left join
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx7 ON jbqk.DA_ID = sfx7.DA_ID
+        left join
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx8 ON jbqk.DA_ID = sfx8.DA_ID
+        WHERE
+        sfx.DEL_FLAG = '0'
+        AND jbqk.DEL_FLAG = '0'
+        <if test="keyword != null and keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="jcyljg != null and jcyljg != ''">
+            AND sfx.JYYLJG = #{jcyljg}
+        </if>
+        <if test="beginDate != null and endDate != null">
+            AND sfx.JYRQ BETWEEN #{beginDate} AND #{endDate}
+        </if>
+        <if test="jyxmCodes != null and !jyxmCodes.isEmpty()">
+            <if test="yfCode == '1'">
+                AND (
+                <foreach collection="jyxmCodes" item="code" separator=" AND ">
+                    sfx.JYXM = #{code}
+                </foreach>
+                )
+            </if>
+            <if test="yfCode == '2'">
+                AND (
+                <foreach collection="jcxmCodes" item="code" separator=" OR ">
+                    sfx.JYXM = #{code}
+                </foreach>
+                )
+            </if>
+        </if>
+        <if test="tsCode != null and tsCode != ''">
+            AND sfx.TS = #{tsCode}
+        </if>
+        Order BY sfx.JYRQ DESC
+
+    </select>
+
+    <select id="searchResultss" resultType="com.shdata.health.gzss.sys.vo.resp.SfXshjcDto"
+            parameterType="com.shdata.health.gzss.sys.vo.SfXshjcSearchVo">
+        SELECT
+        sfx.ID as id,
+        jbqk.DA_ID as daId,
+        jbqk.XM as xm,
+        jbqk.SFZH as sfzh,
+        jbqk.XB as xb,
+        jbqk.CSRQ as csrq,
+        jbqk.LXFS as lxfs,
+        sfx.JYRQ as jyrq,
+        sfx.JYXM as jyxm,
+        sfx.JYSZ as jysz,
+        sfx.DW as dw,
+        sfx.TS as ts
+        FROM
+        CDC_GZSS.CDC_TB_SF_XSHJC sfx
+        JOIN
+        CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        ON jbqk.DA_ID = sfx.DA_ID
+        WHERE
+        sfx.DEL_FLAG = '0'
+        AND jbqk.DEL_FLAG = '0'
+        <if test="searchVo.keyword != null and searchVo.keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{keyword}
+            OR jbqk.YBKH LIKE #{keyword}
+            OR jbqk.XM LIKE #{keyword}
+            )
+        </if>
+        <if test="searchVo.jcyljg != null and searchVo.jcyljg != ''">
+            AND sfx.JYYLJG = #{searchVo.jcyljg}
+        </if>
+        <if test="searchVo.beginDate != null and searchVo.endDate != null">
+            AND sfx.JYRQ BETWEEN #{searchVo.beginDate} AND #{searchVo.endDate}
+        </if>
+        <if test="searchVo.jyxmCodes != null and !searchVo.jyxmCodes.isEmpty()">
+            <if test="searchVo.yfCode == '1'">
+                AND (
+                <foreach collection="searchVo.jyxmCodes" item="code" separator=" AND ">
+                    sfx.JYXM = #{code}
+                </foreach>
+                )
+            </if>
+            <if test="searchVo.yfCode == '2'">
+                AND (
+                <foreach collection="searchVo.jcxmCodes" item="code" separator=" OR ">
+                    sfx.JYXM = #{code}
+                </foreach>
+                )
+            </if>
+        </if>
+        <if test="searchVo.tscode != null and searchVo.tscode != ''">
+            AND sfx.TS = #{searchVo.tscode}
+        </if>
+        ORDER BY sfx.JYRQ, jbqk.DA_ID
+    </select>
+    <select id="searchResults" resultType="com.shdata.health.gzss.sys.vo.resp.SfXshjcDto"
+            parameterType="com.shdata.health.gzss.sys.vo.SfXshjcSearchVo">
+        WITH XSHJC_PIVOT AS
+        (SELECT
+        DA_ID,
+        JYRQ,
+        MAX(JYYLJG) as JYYLJG,
+        MAX(CASE WHEN JYXM = 'Ca' THEN JYSZ ELSE NULL END) AS jysz1,
+        MAX(CASE WHEN JYXM = 'CT' THEN JYSZ ELSE NULL END) AS jysz2,
+        MAX(CASE WHEN JYXM = 'P' THEN JYSZ ELSE NULL END) AS jysz3,
+        MAX(CASE WHEN JYXM = '25OHD' THEN JYSZ ELSE NULL END) AS jysz4,
+        MAX(CASE WHEN JYXM = 'N-MID' THEN JYSZ ELSE NULL END) AS jysz5,
+        MAX(CASE WHEN JYXM = 'Β-CTX' THEN JYSZ ELSE NULL END) AS jysz6,
+        MAX(CASE WHEN JYXM = 'PTH' THEN JYSZ ELSE NULL END) AS jysz7,
+        MAX(CASE WHEN JYXM = 'P1NP' THEN JYSZ ELSE NULL END) AS jysz8,
+        MAX(CASE WHEN JYXM = 'Cr' THEN JYSZ ELSE NULL END) AS jysz9,
+        MAX(CASE WHEN JYXM = 'ALT' THEN JYSZ ELSE NULL END) AS jysz10,
+        MAX(CASE WHEN JYXM = 'ALP' THEN JYSZ ELSE NULL END) AS jysz11,
+        MAX(CASE WHEN JYXM = 'Ca' THEN TS ELSE NULL END) AS ts1,
+        MAX(CASE WHEN JYXM = 'CT' THEN TS ELSE NULL END) AS ts2,
+        MAX(CASE WHEN JYXM = 'P' THEN TS ELSE NULL END) AS ts3,
+        MAX(CASE WHEN JYXM = '25OHD' THEN TS ELSE NULL END) AS ts4,
+        MAX(CASE WHEN JYXM = 'N-MID' THEN TS ELSE NULL END) AS ts5,
+        MAX(CASE WHEN JYXM = 'Β-CTX' THEN TS ELSE NULL END) AS ts6,
+        MAX(CASE WHEN JYXM = 'PTH' THEN TS ELSE NULL END) AS ts7,
+        MAX(CASE WHEN JYXM = 'P1NP' THEN TS ELSE NULL END) AS ts8,
+        MAX(CASE WHEN JYXM = 'Cr' THEN TS ELSE NULL END) AS ts9,
+        MAX(CASE WHEN JYXM = 'ALT' THEN TS ELSE NULL END) AS ts10,
+        MAX(CASE WHEN JYXM = 'ALP' THEN TS ELSE NULL END) AS ts11,
+        MAX(CASE WHEN JYXM = 'Ca' THEN DW ELSE NULL END) AS dw1,
+        MAX(CASE WHEN JYXM = 'CT' THEN DW ELSE NULL END) AS dw2,
+        MAX(CASE WHEN JYXM = 'P' THEN DW ELSE NULL END) AS dw3,
+        MAX(CASE WHEN JYXM = '25OHD' THEN DW ELSE NULL END) AS dw4,
+        MAX(CASE WHEN JYXM = 'N-MID' THEN DW ELSE NULL END) AS dw5,
+        MAX(CASE WHEN JYXM = 'Β-CTX' THEN DW ELSE NULL END) AS dw6,
+        MAX(CASE WHEN JYXM = 'PTH' THEN DW ELSE NULL END) AS dw7,
+        MAX(CASE WHEN JYXM = 'P1NP' THEN DW ELSE NULL END) AS dw8,
+        MAX(CASE WHEN JYXM = 'Cr' THEN DW ELSE NULL END) AS dw9,
+        MAX(CASE WHEN JYXM = 'ALT' THEN DW ELSE NULL END) AS dw10,
+        MAX(CASE WHEN JYXM = 'ALP' THEN DW ELSE NULL END) AS dw11
+        FROM CDC_GZSS.CDC_TB_SF_XSHJC
+        where DEL_FLAG = '0'
+        GROUP BY DA_ID, JYRQ)
+        SELECT jbqk.DA_ID as daId,
+        jbqk.XM as xm,
+        jbqk.SFZH as sfzh,
+        jbqk.YBKH as ybkh,
+        jbqk.XB as xb,
+        jbqk.CSRQ AS csrq,
+        jbqk.LXFS as lxfs,
+        pivot_data.JYRQ AS jyrq,
+        pivot_data.jysz1 AS jysz1,
+        pivot_data.ts1 AS ts1,
+        pivot_data.dw1 AS dw1,
+        pivot_data.jysz2 AS jysz2,
+        pivot_data.ts2 AS ts2,
+        pivot_data.dw2 AS dw2,
+        pivot_data.jysz3 AS jysz3,
+        pivot_data.ts3 AS ts3,
+        pivot_data.dw3 AS dw3,
+        pivot_data.jysz4 AS jysz4,
+        pivot_data.ts4 AS ts4,
+        pivot_data.dw4 AS dw4,
+        pivot_data.jysz5 AS jysz5,
+        pivot_data.ts5 AS ts5,
+        pivot_data.dw5 AS dw5,
+        pivot_data.jysz6 AS jysz6,
+        pivot_data.ts6 AS ts6,
+        pivot_data.dw6 AS dw6,
+        pivot_data.jysz7 AS jysz7,
+        pivot_data.ts7 AS ts7,
+        pivot_data.dw7 AS dw7,
+        pivot_data.jysz8 AS jysz8,
+        pivot_data.ts8 AS ts8,
+        pivot_data.dw8 AS dw8,
+        pivot_data.jysz9 AS jysz9,
+        pivot_data.ts9 AS ts9,
+        pivot_data.dw9 AS dw9,
+        pivot_data.jysz10 AS jysz10,
+        pivot_data.ts10 AS ts10,
+        pivot_data.dw10 AS dw10,
+        pivot_data.jysz11 AS jysz11,
+        pivot_data.ts11 AS ts11,
+        pivot_data.dw11 AS dw11
+        FROM XSHJC_PIVOT pivot_data
+        JOIN
+        CDC_GZSS.CDC_TB_DA_JBQK jbqk
+        ON
+        jbqk.DA_ID = pivot_data.DA_ID
+        and jbqk.DEL_FLAG = '0'
+        <if test="searchVo.keyword != null and searchVo.keyword != ''">
+            AND (
+            jbqk.SFZH LIKE #{searchVo.keyword}
+            OR jbqk.YBKH LIKE #{searchVo.keyword}
+            OR jbqk.XM LIKE #{searchVo.keyword}
+            )
+        </if>
+        <if test="searchVo.jcyljg != null and searchVo.jcyljg != ''">
+            AND pivot_data.JYYLJG = #{searchVo.jcyljg}
+        </if>
+        <if test="searchVo.beginDate != null and searchVo.endDate != null">
+            AND pivot_data.JYRQ BETWEEN #{searchVo.beginDate} AND #{searchVo.endDate}
+        </if>
+        <if test="searchVo.jyxmCodes != null and !searchVo.jyxmCodes.isEmpty()">
+            <if test="searchVo.yfCode == '1'">
+                AND (
+                <foreach collection="searchVo.jyxmCodes" item="code" separator=" AND ">
+                    <choose>
+                        <when test="code == 'Ca'">
+                            pivot_data.ts1 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'CT'">
+                            pivot_data.ts2 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'P'">
+                            pivot_data.ts3 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == '25OHD'">
+                            pivot_data.ts4 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'N-MID'">
+                            pivot_data.ts5 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'Β-CTX'">
+                            pivot_data.ts6 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'PTH'">
+                            pivot_data.ts7 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'P1NP'">
+                            pivot_data.ts8 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'Cr'">
+                            pivot_data.ts9 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'ALT'">
+                            pivot_data.ts10 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'ALP'">
+                            pivot_data.ts11 = #{searchVo.tscode}
+                        </when>
+                    </choose>
+                </foreach>
+                )
+            </if>
+            <if test="searchVo.yfCode == '2'">
+                AND (
+                <foreach collection="searchVo.jyxmCodes" item="code" separator=" OR ">
+                    <choose>
+                        <when test="code == 'Ca'">
+                            pivot_data.ts1 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'CT'">
+                            pivot_data.ts2 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'P'">
+                            pivot_data.ts3 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == '25OHD'">
+                            pivot_data.ts4 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'N-MID'">
+                            pivot_data.ts5 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'Β-CTX'">
+                            pivot_data.ts6 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'PTH'">
+                            pivot_data.ts7 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'P1NP'">
+                            pivot_data.ts8 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'Cr'">
+                            pivot_data.ts9 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'ALT'">
+                            pivot_data.ts10 = #{searchVo.tscode}
+                        </when>
+                        <when test="code == 'ALP'">
+                            pivot_data.ts11 = #{searchVo.tscode}
+                        </when>
+                    </choose>
+                </foreach>
+                )
+            </if>
+        </if>
+        ORDER BY pivot_data.JYRQ DESC
+    </select>
+    <select id="fetchBiochemicalCheckDataBydaIdandCjrq"
+            resultType="com.shdata.health.gzss.sys.vo.resp.SfXshjcVo" parameterType="com.shdata.health.gzss.sys.vo.XshYlSearchVo">
+        SELECT t.ID as id,
+        t.DA_ID as daId,
+        t.JYRQ as jyrq,
+        t.JYYLJG as jyyljg,
+        t.JYZL as jyzl,
+        t.TS as ts,
+        t.JYXM as jyxm,
+        t.JYSZ as jysz,
+        t.CKZ as ckz,
+        t.SFFS as sffs,
+        t.SFYSID as sfysid,
+        t.SFYS as sfys,
+        t.GLJG as gljg,
+        t.SJLY as sjly,
+        t.DW as dw
+        FROM CDC_GZSS.CDC_TB_SF_XSHJC t
+        WHERE t.DEL_FLAG = '0'
+        <if test="daId != null and daId != ''">
+            AND t.DA_ID = #{daId}
+        </if>
+        <if test="jyrq != null">
+            AND t.JYRQ = #{jyrq}
+        </if>
+    </select>
+</mapper>

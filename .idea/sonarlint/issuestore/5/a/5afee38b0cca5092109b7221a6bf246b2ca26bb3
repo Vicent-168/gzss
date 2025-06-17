@@ -1,0 +1,64 @@
+
+Ä
+java:S4973ó"<Strings and Boxed types should be compared using "equals()".(Òøˇî8Ø¥∆ôµ2J$be243abb-3c63-4089-a189-f2fb26f9ab82
+
+java:S4973§"<Strings and Boxed types should be compared using "equals()".(ÖÀ∆F8Ø¥∆ôµ2J$05172db1-44d6-4647-b10a-63b005f8f777
+†
+java:S1488Ì"\Immediately return this expression instead of assigning it to the temporary variable "daId".(∞±—÷8≤¥∆ôµ2J$7e12d84b-64a8-46e0-8d13-8d8702b13152
+ç	java:S112`"FDefine and throw a dedicated exception instead of using a generic one.(ÊÙ√µ˘ˇˇˇˇ8≥¥∆ôµ2J$9bfacb52-fefc-4a9e-9f9b-9ecfff2f2839
+ç	java:S112j"FDefine and throw a dedicated exception instead of using a generic one.(“Ç“È¸ˇˇˇˇ8≥¥∆ôµ2J$a20cfaa9-46aa-4dad-9ed4-7bb03a560513
+â	java:S112ß"FDefine and throw a dedicated exception instead of using a generic one.(Õ¥ÄÇ8≥¥∆ôµ2J$0301dba3-8116-4151-aef7-d0d5258abea2
+é	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(ÊÙ√µ˘ˇˇˇˇ8≥¥∆ôµ2J$4442856d-0195-4cc1-8300-e096449522aa
+é	java:S112Ã"FDefine and throw a dedicated exception instead of using a generic one.(“Ç“È¸ˇˇˇˇ8≥¥∆ôµ2J$6101a44a-08d1-4bc1-af2d-e6adf2809904
+â	java:S112‘"FDefine and throw a dedicated exception instead of using a generic one.(åœ—“8≥¥∆ôµ2J$67d5d0b6-9473-49d9-8c7d-6be5456e9ee3
+é	java:S112∏"FDefine and throw a dedicated exception instead of using a generic one.(“Ç“È¸ˇˇˇˇ8≥¥∆ôµ2J$07657bc6-3720-4839-ab79-88ae26817be5
+é	java:S112Œ"FDefine and throw a dedicated exception instead of using a generic one.(“Ç“È¸ˇˇˇˇ8≥¥∆ôµ2J$23da8602-ee92-4529-9d80-2d849922099d
+Ö
+java:S68130"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8¥¥∆ôµ2J$dd4cc48c-b188-4dc5-bfaf-a00a0f3e6fa8
+Ö
+java:S68133"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8¥¥∆ôµ2J$f16b2e34-9ecd-4490-9a6f-da62c0578a5e
+Ö
+java:S68136"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8µ¥∆ôµ2J$a7b5792b-dac1-436d-aa85-01a769395e3e
+Ö
+java:S68139"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8µ¥∆ôµ2J$e468ba1b-6688-45ba-a109-dc2263761158
+Ö
+java:S6813<"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8µ¥∆ôµ2J$eaf36bd6-8797-4521-9524-47ef411651c3
+Ö
+java:S6813>"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8µ¥∆ôµ2J$673d2cc7-a903-4d46-84e2-bda3c987d08d
+Ö
+java:S6813@"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8µ¥∆ôµ2J$fba1eb67-7fae-432e-9cb9-2c832e7a1940
+Ö
+java:S6813B"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8µ¥∆ôµ2J$665fa5a7-b65c-4e3b-92af-73d805b80bb1
+Ö
+java:S6813D"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8µ¥∆ôµ2J$771daeaa-2fcd-4a57-82ec-59f50c917ce6
+Ö
+java:S6813F"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8µ¥∆ôµ2J$30a93f0f-4a93-4c85-bb57-a788aa51fa81
+Ö
+java:S6813H"BRemove this field injection and use constructor injection instead.(ÍÊƒﬁ8µ¥∆ôµ2J$569d1adf-46f6-4b9e-aa42-5cdac0d821cd
+ë
+java:S3252V"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ò•¢	8∑¥∆ôµ2J$aff4b5d4-6346-440f-ae7e-330b6c4b01b4
+ó
+java:S3252\"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(éç›¡˘ˇˇˇˇ8∑¥∆ôµ2J$fdb2a2e8-c6c9-4583-8e51-63c42d110c84
+Ü
+java:S1155_">Use isEmpty() to check whether the collection is empty or not.(Î‚ÄÀˇˇˇˇˇ8∑¥∆ôµ2J$148e9be5-508a-41b3-9e3d-d3b4b255cf87
+î
+java:S3252¯"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(ÍÚÿµ8º¥∆ôµ2J$f6c9d077-59c3-42f8-bb50-985c4c2b459a
+É
+java:S6213è":Rename this variable to not match a restricted identifier.(Îäàã˘ˇˇˇˇ8º¥∆ôµ2J$30289d24-2ee4-40ec-96fc-1ab4823e3238
+}
+java:S1854À"9Remove this useless assignment to local variable "bmisp".(¸€√¸8æ¥∆ôµ2J$5093eaa8-6695-4a11-96ae-cde1707c71df
+ô
+java:S6809ì"UCall transactional methods via an injected dependency instead of directly via 'this'.(ﬂ—á∏8≈¥∆ôµ2J$090f98bb-9d01-4394-b96f-951123556274
+ñ
+java:S3776≥"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(·∏”π8≈¥∆ôµ2J$0b0a4def-15e0-4780-832f-55b74fa12d87
+ì
+java:S3252∏"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ä¯ú÷8≈¥∆ôµ2J$1d02645a-5b0d-4ef7-830c-8cf66a7d09c4
+í
+java:S3252æ"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ïùïJ8∆¥∆ôµ2J$861a5498-dae5-4c88-a61a-9fc971e26650
+á
+java:S1155¡">Use isEmpty() to check whether the collection is empty or not.(Î‚ÄÀˇˇˇˇˇ8∆¥∆ôµ2J$f700749f-4f17-4b03-b646-d282cd4c17ed
+ô
+java:S3252ÿ"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(Í„é‰˚ˇˇˇˇ8«¥∆ôµ2J$5f49ce9e-e29d-4be1-b334-809fa864faa7
+Ç
+java:S1155ë">Use isEmpty() to check whether the collection is empty or not.(úì±Ó8»¥∆ôµ2J$a3c33653-5884-4366-b8da-0f6605730799
+	java:S125ù"<This block of commented-out lines of code should be removed.(‚£Û≈8…¥∆ôµ2J$7a2eceaf-28de-40d2-9cbf-1b4034bbacf4

@@ -1,0 +1,105 @@
+
+{
+java:S2589”"7Remove this expression which always evaluates to "true"(÷Š‰8÷›Óä«2J$d64ca9dc-3738-450d-8bbc-726ae5a2f615
+ª
+java:S1488ò"aImmediately return this expression instead of assigning it to the temporary variable "sfFyxxVos".(½³óºøÿÿÿÿ8ß‡Éä«2J$05b4a01b-4420-48ae-bbc9-ad994b3fde99
+	java:S112ä"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8â‡Éä«2J$6d0b080e-835a-4f29-8742-6f98179a1865
+	java:S112ñ"FDefine and throw a dedicated exception instead of using a generic one.(’°ëŒşÿÿÿÿ8â‡Éä«2J$74590d6e-d34d-40ac-8ba4-e57e4e8bc367
+
+java:S1192ğ"UDefine a constant instead of duplicating this literal "æ¡£æ¡ˆIDä¸èƒ½ä¸ºç©º" 3 times.(…Ÿ±Îøÿÿÿÿ8ã‡Éä«2J$0d6a4c55-b85a-4d75-8119-88f6a1dcba26
+…
+java:S68131"BRemove this field injection and use constructor injection instead.(êæÄŞ8ä‡Éä«2J$265ad334-a80c-473a-b17f-94f677bb9a10
+…
+java:S68134"BRemove this field injection and use constructor injection instead.(êæÄŞ8ä‡Éä«2J$5a14f5c6-29ae-4dbd-be47-ebc29796313f
+…
+java:S68137"BRemove this field injection and use constructor injection instead.(êæÄŞ8ä‡Éä«2J$7c04b071-886e-47c9-a090-e73596aa1760
+…
+java:S68139"BRemove this field injection and use constructor injection instead.(êæÄŞ8ä‡Éä«2J$005fb6a2-08ea-4a1d-86c4-941af225f108
+š
+java:S3776C"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ï±½°ıÿÿÿÿ8æ‡Éä«2J$5ec702a0-6cf3-40b0-b7bd-a21754a230c7
+ƒ	java:S125G"<This block of commented-out lines of code should be removed.(¯ÓŸ‚üÿÿÿÿ8ç‡Éä«2J$68d86f8f-6c38-4c20-8488-c96b339a8268
+—
+java:S3252a"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".( »»´ıÿÿÿÿ8è‡Éä«2J$40dff969-5432-4a50-a9b2-f456a076230f
+’
+java:S3252b"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(´ãÛß8è‡Éä«2J$c41a0b63-f2a1-48bb-8da3-f8b22bc163b2
+—
+java:S3252c"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ù¸òúÿÿÿÿ8è‡Éä«2J$0acbb2f1-7d30-42fb-b7ae-495d9267d1d4
+’
+java:S3252d"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(“²ÓÆ8è‡Éä«2J$7e23e4dd-4c4c-4c25-afd5-c266e048bcff
+‘
+java:S3252e"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ûÃéW8è‡Éä«2J$54c5ea5b-500a-4491-8d18-5850bd4c791e
+—
+java:S3252f"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ş•µâûÿÿÿÿ8é‡Éä«2J$d9acb021-36f8-4f33-90e6-ab09fe889516
+’
+java:S3252h"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(›‚­8é‡Éä«2J$4696fb66-7d8d-41e3-97bc-62106d787c6e
+‘
+java:S3252i"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(®Ú€8é‡Éä«2J$f0f02abb-404d-479f-9b6e-6f8a9eeb12ec
+’
+java:S3252j"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(™Æ“8é‡Éä«2J$b981a894-948a-4780-b5dd-7be63d938284
+—
+java:S3252k"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(†Öëãüÿÿÿÿ8é‡Éä«2J$06743d0d-c867-42cc-ab8c-43b4c1cc7d2e
+’
+java:S3252l"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(§‚¢8é‡Éä«2J$81f3d071-6899-4033-bde0-0bb92e5b1c6d
+„	java:S125Ö"<This block of commented-out lines of code should be removed.(¯ÓŸ‚üÿÿÿÿ8ì‡Éä«2J$849bcd7f-e7e0-4058-9c57-4019915c64e1
+ƒ
+java:S6213Ş":Rename this variable to not match a restricted identifier.(¤êĞëıÿÿÿÿ8ì‡Éä«2J$f87a1fc8-7049-4896-8acb-6c25abdd9f2d
+	java:S125ß"<This block of commented-out lines of code should be removed.(Ü÷Ñ—8ì‡Éä«2J$508a313f-0ab6-4c47-9f03-7e9e62c6373f
+›
+java:S3776ö"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(Éå½øÿÿÿÿ8í‡Éä«2J$4da52d63-9d3c-4b2a-a5f8-515da9569975
+›
+java:S3776ı"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(ÃÀ¥¿üÿÿÿÿ8ò‡Éä«2J$0b4f9756-6f78-4bbb-8fac-14b16e1ae8a4
+
+java:S1854ÿ"8Remove this useless assignment to local variable "cfrq".(”Ãôµûÿÿÿÿ8ò‡Éä«2J$990cbaa7-ca23-4f6b-a8fb-8900ee5bf525
+ƒ
+java:S1854Œ":Remove this useless assignment to local variable "ywblfy".(Õ Ô‹ÿÿÿÿÿ8ó‡Éä«2J$3614b253-99ba-4b17-80f1-12ff28c88afc
+˜
+java:S3252€"OUse static access with "com.shdata.health.common.utils.AuthUtil" for "getUser".(«îÍÀøÿÿÿÿ8ó‡Éä«2J$2818c5bb-c78d-450d-aec8-5db48eeda8f1
+”
+java:S3252…"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(ñƒíÇ8ó‡Éä«2J$69bd32b1-cd20-4d9f-b004-dee7dc29ed45
+“
+java:S3252‹"PUse static access with "com.shdata.health.common.utils.AuthUtil" for "getOrgan".(îÿ8ó‡Éä«2J$a1f79496-6167-4e8e-bc71-22bdd0c4b586
+t
+java:S1481Œ"+Remove this unused "ywblfy" local variable.(Õ Ô‹ÿÿÿÿÿ8ó‡Éä«2J$cd91e469-7103-41c1-b114-6fb0ff3f9b76
+„	java:S125§"<This block of commented-out lines of code should be removed.(œûØ†ıÿÿÿÿ8ô‡Éä«2J$82b679c6-7063-400c-8de8-44d6284ea307
+˜
+java:S3252´"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ÂÜôúÿÿÿÿ8õ‡Éä«2J$461d510c-96ef-4b72-847c-67a470d6598e
+˜
+java:S3252µ"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ù¸òúÿÿÿÿ8õ‡Éä«2J$24b9069a-4743-404c-b089-dd041553a55e
+“
+java:S3252¶"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(“²ÓÆ8õ‡Éä«2J$6241287b-104a-4133-b3ac-e53aa61c517d
+’
+java:S3252·"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ûÃéW8õ‡Éä«2J$55a16526-82a5-403c-98f6-4c2de2122c5d
+“
+java:S3252¸"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(´ãÛß8õ‡Éä«2J$ece1b485-8558-4972-a038-0d3fad395f78
+˜
+java:S3252¹"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(Ş•µâûÿÿÿÿ8õ‡Éä«2J$df2055c3-032e-4dd1-b5e6-675f623e54ee
+“
+java:S3252»"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(›º×8õ‡Éä«2J$a58a0c75-9279-4501-b0f4-49b7cf55e678
+˜
+java:S3252¼"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(îÔÓ…ùÿÿÿÿ8õ‡Éä«2J$e529db92-45a7-461a-97cd-62f1db48721d
+˜
+java:S3252½"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ûÎ½çıÿÿÿÿ8õ‡Éä«2J$9264220b-9a1c-4bb3-966a-c528d9b3ba99
+˜
+java:S3252¾"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(ŞëÌìùÿÿÿÿ8õ‡Éä«2J$169e05fc-64a4-42ef-838e-8ba6cfefdb5b
+‚
+java:S1155Â">Use isEmpty() to check whether the collection is empty or not.(ŠÚ¨ı8õ‡Éä«2J$fc10cad3-d38f-4430-bdea-ca6ff4d212e3
+
+java:S3252ï"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(ù¤Ğø8÷‡Éä«2J$52eb67cb-899b-46ed-b272-cb79105231dd
+„	java:S125ó"<This block of commented-out lines of code should be removed.(™¯¸¦ÿÿÿÿÿ8÷‡Éä«2J$d0de2003-7b47-46f2-8d58-d0949a5be007
+›
+java:S3776ÿ"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(Õ—²úÿÿÿÿ8÷‡Éä«2J$9837ef56-786f-4379-a79b-7c50291585d8
+•
+java:S3252"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(¹ Ï˜ùÿÿÿÿ8ø‡Éä«2J$d4200d74-26b8-4e1b-80c4-db56ce78ba17
+
+java:S3252ù"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(ù¤Ğø8²Ëä«2J$8d9cc056-d044-49b0-9324-340d8c9656a1
+	java:S125…"<This block of commented-out lines of code should be removed.(…øŸ¥8²Ëä«2J$fb548e76-ecbb-4027-9c4d-65cceea16a5f
+‡
+java:S1155Š">Use isEmpty() to check whether the collection is empty or not.(Íî¬Îûÿÿÿÿ8²Ëä«2J$72094eb3-da10-4f2a-8e64-396ce2c553e6
+„	java:S125—"<This block of commented-out lines of code should be removed.(Ò‘ßˆûÿÿÿÿ8²Ëä«2J$49e4ecdd-3244-4d4e-b56d-80deab34a4c7
+	java:S125¾"<This block of commented-out lines of code should be removed.(…øŸ¥8²Ëä«2J$642f0154-b586-4e3d-a403-5a62269049ff
+‡
+java:S1155Ã">Use isEmpty() to check whether the collection is empty or not.(Íî¬Îûÿÿÿÿ8²Ëä«2J$120ef88d-ae58-431c-acc3-8f08cb6ac05e
+
+java:S6541ö"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 100 to 64, Complexity from 17 to 14, Nesting Level from 4 to 2, Number of Variables from 31 to 6.(Éå½øÿÿÿÿ8‚ˆÉä«2J$49089cb9-997b-4745-a0f4-69be1a41e960
+
+java:S6541ÿ"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 96 to 64, Complexity from 18 to 14, Nesting Level from 4 to 2, Number of Variables from 30 to 6.(Õ—²úÿÿÿÿ8‚ˆÉä«2J$ae85e90c-162b-4090-aa12-5938ffd8e83d

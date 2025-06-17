@@ -1,0 +1,15 @@
+
+…
+java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8İïîÉ–2J$54ea7c8a-e703-4afd-993b-f08e802dd115
+…
+java:S6813,"BRemove this field injection and use constructor injection instead.(êæÄŞ8İïîÉ–2J$0c0f0a19-01df-4828-bf00-1cfbba89eb0d
+y
+java:S1144“"0Remove this unused private "getDictName" method.(Œ”Íêıÿÿÿÿ8ŞïîÉ–2J$43b20c9d-77de-4a0b-8b23-519e987fc369
+•
+java:S37766"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¸­ÂØ8ÊŒğÉ–2J$18c8c5eb-dfd2-4b90-888e-ac7a58fe13e5
+”
+java:S3252F"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isBlank".(¦ı¹âùÿÿÿÿ8áïîÉ–2J$b498bf4c-1319-4b25-a7d6-b1dddc9f8d8a
+’
+java:S3252H"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(¸ÀÜ¶8áïîÉ–2J$916a81d5-769e-4f28-86ec-b715b8ac2ebd
+—
+java:S3252I"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(…ƒÓ‡şÿÿÿÿ8áïîÉ–2J$27fa80d8-5215-4b57-8267-7ce316245623

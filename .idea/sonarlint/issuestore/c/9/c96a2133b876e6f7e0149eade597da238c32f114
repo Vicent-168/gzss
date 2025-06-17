@@ -1,0 +1,11 @@
+
+‘	java:S1160"ORename this field "Jcrq" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ•©ÿ8¥»½Â’2J$a7382e8d-7e49-420f-a1e7-32dc55dc3f2f
+ƒ	java:S125!"<This block of commented-out lines of code should be removed.(‰û¨úýÿÿÿÿ8ýû¹™¢2J$c2cbe91d-2076-4de6-97a9-9002e0add753
+ƒ	java:S125("<This block of commented-out lines of code should be removed.(òÃôúÿÿÿÿ8Ùó»™¢2J$234638d3-e5bb-4fb7-909f-224d0cdbde71
+
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonFormat'.(ýÙè‹øÿÿÿÿ8¡‘óÌ©2J$8449101a-46fa-4b2b-90dc-0359ed917ae5
+‰
+java:S1128"GRemove this unused import 'com.shdata.health.common.mybatis.NameField'.(¹ð 8ÅÊÓš¢2J$19052195-066b-4608-8799-7dbeef02dfe8
+™
+java:S1128
+"QRemove this unused import 'org.springframework.format.annotation.DateTimeFormat'.(‡ˆôƒøÿÿÿÿ8¡‘óÌ©2J$b6398c27-9298-42ff-ac42-85fb606f5af7

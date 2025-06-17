@@ -1,0 +1,19 @@
+
+…
+java:S6813("BRemove this field injection and use constructor injection instead.(êæÄŞ8µ×Ì–2J$43e80e11-5861-4057-a814-402b06cd615b
+…
+java:S6813+"BRemove this field injection and use constructor injection instead.(êæÄŞ8µ×Ì–2J$58490bca-c301-42a7-97d6-9dd05e87e9db
+y
+java:S1144”"0Remove this unused private "getDictName" method.(Œ”Íêıÿÿÿÿ8µ×Ì–2J$17fe2703-3c30-4f06-914a-ec841c2a1ba4
+•
+java:S37765"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Ò¦Î’8Ÿµ×Ì–2J$6fb9ead0-b704-41ba-9e4d-6f9527c643af
+—
+java:S3252I"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(åËø‚ıÿÿÿÿ8¤µ×Ì–2J$3ab263be-5cde-478b-9be2-058e0ac202ec
+‘
+java:S3252J"OUse static access with "cn.hutool.core.text.CharSequenceUtil" for "isNotBlank".(¹¯©q8¥µ×Ì–2J$71060a1e-9416-4ebe-b07a-d185d5d6df08
+~	java:S125{"<This block of commented-out lines of code should be removed.(·±äò8¦µ×Ì–2J$78336ec7-ad07-46a0-a1c4-18a3092e8e6a
+	java:S125"<This block of commented-out lines of code should be removed.(–»8§µ×Ì–2J$b02c5de5-5381-4859-8593-f9eafe8e4111
+
+java:S1128"HRemove this unused import 'com.shdata.health.gzss.sys.vo.BsMxbSearchVo'.(ŸüÄúÿÿÿÿ8Å¤Üö–2J$9783ba34-0cda-4159-abc7-a99d0e047e0d
+‹
+java:S1128"CRemove this unused import 'com.shdata.health.common.base.PageData'.(‚üÁŒüÿÿÿÿ8Å¤Üö–2J$1b2d191a-0758-4740-90c3-a5fe0431d82e
